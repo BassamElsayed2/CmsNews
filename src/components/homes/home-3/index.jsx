@@ -10,6 +10,7 @@ import IntegrationArea from "./integration-area";
 import RatedArea from "./rated-area";
 import SalesArea from "../../../common/sales-area";
 import ServiceArea from "./service-area";
+import GalleryArea from "./rated-area";
 
 const HomeThree = () => {
   return (
@@ -18,7 +19,7 @@ const HomeThree = () => {
       <HeroArea />
       <CounterArea />
       <ServiceArea />
-      <RatedArea />
+      <GalleryArea />
       <CardArea />
       <SalesArea />
       <TestimonialArea />

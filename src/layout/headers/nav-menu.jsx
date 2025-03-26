@@ -1,15 +1,19 @@
 import Link from "next/link";
 import React from "react";
 import menu_data from "./menu-data";
+import { useRouter } from "next/router";
 
-const NavMenu = () => {
+const NavMenu = ({ links }) => {
+  const { locale } = useRouter();
   return (
     <>
       <ul>
-        {menu_data.map((menu_item, i) => (
+        {links?.map((menu_item, i) => (
           <li key={i}>
-            <Link href={menu_item.link}>{menu_item.title}</Link>
-            {menu_item.has_dropdown && (
+            <Link href={`${locale}${menu_item.url}`}>
+              {menu_item.title?.[locale]}
+            </Link>
+            {/* {menu_item.has_dropdown && (
               <ul className="submenu">
                 {menu_item.sub_menus.map((sub_menu, i) => (
                   <li key={i}>
@@ -17,7 +21,7 @@ const NavMenu = () => {
                   </li>
                 ))}
               </ul>
-            )}
+            )} */}
           </li>
         ))}
       </ul>

@@ -2,9 +2,13 @@ import Link from "next/link";
 import React, { useState } from "react";
 // internal
 import menu_data from "./menu-data";
+import { useRouter } from "next/router";
 
-const MobileMenus = () => {
+const MobileMenus = ({ menuData }) => {
   const [navTitle, setNavTitle] = useState("");
+
+  const { locale } = useRouter();
+
   //openMobileMenu
   const openMobileMenu = (menu) => {
     if (navTitle === menu) {
@@ -17,11 +21,11 @@ const MobileMenus = () => {
     <>
       <nav className="mean-nav">
         <ul>
-          {menu_data.map((menu, i) => (
+          {menuData?.map((menu, i) => (
             <React.Fragment key={i}>
-              {menu.has_dropdown && (
+              {/* {menu.has_dropdown && (
                 <li className="has-dropdown">
-                  <Link href={menu.link}>{menu.title}</Link>
+                  <Link href={menu.link}>{menu.title?.[locale]}</Link>
                   <ul
                     className="submenu"
                     style={{
@@ -38,17 +42,16 @@ const MobileMenus = () => {
                     className={`mean-expand ${
                       navTitle === menu.title ? "mean-clicked" : ""
                     }`}
-                   
                     onClick={() => openMobileMenu(menu.title)}
                     style={{ fontSize: "18px", cursor: "pointer" }}
                   >
                     <i className="fal fa-plus"></i>
                   </a>
                 </li>
-              )}
+              )} */}
               {!menu.has_dropdown && (
                 <li>
-                  <Link href={menu.link}>{menu.title}</Link>
+                  <Link href={menu.url}>{menu.title?.[locale]}</Link>
                 </li>
               )}
             </React.Fragment>

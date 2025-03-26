@@ -18,7 +18,7 @@ const ProjectDetails = () => {
             <ProjectDetailsArea />
             <ProjectArea />
           </main>
-          <FooterFive style_contact={true}  style_team={true} bg_style={false} />
+          <FooterFive style_contact={true} style_team={true} bg_style={false} />
         </div>
       </div>
     </>

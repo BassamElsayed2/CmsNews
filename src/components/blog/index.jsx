@@ -5,14 +5,22 @@ import React from "react";
 import CtaArea from "../contact/cta-area";
 import BlogGrid from "./blog-grid";
 import Portfolio from "./portfolio";
+import { useRouter } from "next/router";
 
 const Blog = () => {
+  const { locale } = useRouter();
+
   return (
     <>
       <HeaderSix />
       <main>
-        <BreadcrumbTwo title={"Read our blogs"} innertitle={"Blog Grid Classic"} />
-        <BlogGrid />
+        <BreadcrumbTwo
+          title={locale === "en" ? "Read our blogs" : "اقرأ مدوناتنا"}
+          innertitle={
+            locale === "en" ? "Blog Grid Classic" : "شبكة المدونات الكلاسيكية"
+          }
+        />
+        {/* <BlogGrid /> */}
         <Portfolio />
         <CtaArea />
       </main>

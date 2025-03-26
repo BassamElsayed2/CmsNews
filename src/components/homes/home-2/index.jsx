@@ -13,24 +13,22 @@ import TestimonialArea from "./testimonial-area";
 const HomeTwo = () => {
   return (
     <>
-
       <HeaderTwo />
       <div id="smooth-wrapper">
-      <div id="smooth-content">
-      <main className="fix"> 
-      <HeroArea />
-      <PaymentArea />
-      <PaymentMethodArea />
-      <ServiceArea />
-      <OpenAccountArea />
-      <TestimonialArea />
-      <FaqArea />
-      <CtaArea /> 
-      </main>
-      <FooterTwo />
+        <div id="smooth-content">
+          <main className="fix">
+            <HeroArea />
+            <PaymentArea />
+            <PaymentMethodArea />
+            <ServiceArea />
+            <OpenAccountArea />
+            <TestimonialArea />
+            <FaqArea />
+            <CtaArea />
+          </main>
+          <FooterTwo />
+        </div>
       </div>
-      </div>
-
     </>
   );
 };

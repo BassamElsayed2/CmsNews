@@ -1,11 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
-
+import React, { useEffect, useState } from "react";
 
 import avata_1 from "../../../public/assets/img/blog/blog-list-avata-1.jpg";
 import avata_2 from "../../../public/assets/img/blog/blog-list-avata-2.jpg";
 import avata_3 from "../../../public/assets/img/blog/blog-list-avata-3.jpg";
+import { blogFetch } from "@/src/sanity/lib/queries";
+import { client } from "@/src/sanity/lib/client";
+import { useRouter } from "next/router";
+import { urlFor } from "@/src/sanity/lib/image";
 
 const recent_post_data = [
   {
@@ -31,6 +34,20 @@ const recent_post_data = [
   },
 ];
 const RecentPost = () => {
+  const { locale } = useRouter();
+
+  const [blogData, setBlogData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const query = blogFetch;
+      const data = await client.fetch(query);
+      setBlogData(data);
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <div className="sidebar__widget mb-40">
@@ -39,16 +56,21 @@ const RecentPost = () => {
         </div>
         <div className="sidebar__widget-content">
           <div className="sidebar__post rc__post">
-            {recent_post_data.map((item, i) => (
+            {blogData?.posts.slice(0, 3).map((item, i) => (
               <div key={i} className="rc__post mb-20 d-flex">
                 <div className="rc__post-thumb mr-20">
-                  <Link href="/blog-details">
-                    <Image src={item.img} alt="theme-pure" />
+                  <Link href={`/${locale}/blog/${item?.slug.current}`}>
+                    <img
+                      src={item?.img ? urlFor(item?.img).url() : ""}
+                      alt={item?.title?.[locale]}
+                    />
                   </Link>
                 </div>
                 <div className="rc__post-content">
                   <h3 className="rc__post-title">
-                    <Link href="/blog-details">{item.title}</Link>
+                    <Link href={`/${locale}/blog/${item?.slug.current}`}>
+                      {item.title?.[locale]}
+                    </Link>
                   </h3>
                   <div className="rc__meta">
                     <span>{item.date}</span>

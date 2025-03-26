@@ -1,8 +1,10 @@
 import React from "react";
 import NiceSelect from "../ui/nice-select";
+import { useRouter } from "next/router";
 
 const ContactUsForm = () => {
   const selectHandler = (e) => {};
+  const { locale } = useRouter();
   return (
     <>
       <form onSubmit={(e) => e.preventDefault()} className="box">
@@ -10,22 +12,29 @@ const ContactUsForm = () => {
           <div className="col-12">
             <div className="postbox__comment-input mb-30">
               <input type="text" className="inputText" required />
-              <span className="floating-label">Full Name</span>
+              <span className="floating-label">
+                {locale === "en" ? "Full Name" : "الاسم بالكامل"}
+              </span>
             </div>
           </div>
           <div className="col-12">
             <div className="postbox__comment-input mb-30">
               <input type="text" className="inputText" required />
-              <span className="floating-label">Your Email</span>
+              <span className="floating-label">
+                {locale === "en" ? "Your Email" : "البريد الالكتروني "}
+              </span>
             </div>
           </div>
           <div className="col-12">
             <div className="postbox__comment-input mb-35">
               <input type="text" className="inputText" required />
-              <span className="floating-label">Phone Number</span>
+              <span className="floating-label">
+                {" "}
+                {locale === "en" ? "Phone Number" : "رقم الهاتف"}
+              </span>
             </div>
           </div>
-          <div className="col-12">
+          {/* <div className="col-12">
             <div className="postbox__select mb-30">
               <NiceSelect
                 options={[
@@ -40,16 +49,22 @@ const ContactUsForm = () => {
                 onChange={selectHandler}
               />
             </div>
-          </div>
+          </div> */}
           <div className="col-xxl-12">
             <div className="postbox__comment-input mb-30">
               <textarea className="textareaText" required></textarea>
-              <span className="floating-label-2">Message...</span>
+              <span className="floating-label-2">
+                {" "}
+                {locale === "en" ? "Message..." : "الرسالة..."}
+              </span>
             </div>
           </div>
           <div className="col-xxl-12">
             <div className="postbox__btn-box">
-              <button className="submit-btn w-100">Send your Request</button>
+              <button className="submit-btn w-100">
+                {" "}
+                {locale === "en" ? "Submit" : "ارسل"}
+              </button>
             </div>
           </div>
         </div>
