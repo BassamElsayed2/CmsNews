@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 
 import img from "../../../../public/assets/img/faq/faq-1.png";
 import { useRouter } from "next/router";
-import { faqFetch } from "@/src/sanity/lib/queries";
+// import { faqFetch } from "@/src/sanity/lib/queries";
 import { client } from "@/src/sanity/lib/client";
 import { urlFor } from "@/src/sanity/lib/image";
 
@@ -27,23 +27,23 @@ const faq_content = {
 const { sub_title, title, description, btn_text } = faq_content;
 
 const FaqArea = ({ style_service }) => {
-  const [faqData, setFaqData] = useState(null);
+  // const [faqData, setFaqData] = useState(null);
 
-  const { locale } = useRouter();
+  // const { locale } = useRouter();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const query = faqFetch;
-      const data = await client.fetch(query);
-      setFaqData(data);
-    };
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const query = faqFetch;
+  //     const data = await client.fetch(query);
+  //     setFaqData(data);
+  //   };
 
-    fetchData();
-  }, []);
+  //   fetchData();
+  // }, []);
 
   return (
     <>
-      {faqData?.appear && (
+      {/* {faqData?.appear && (
         <div className="tp-faq-area pt-140 pb-120 fix">
           <div className="container">
             <div className="row">
@@ -98,7 +98,8 @@ const FaqArea = ({ style_service }) => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
+      <div></div>
     </>
   );
 };
