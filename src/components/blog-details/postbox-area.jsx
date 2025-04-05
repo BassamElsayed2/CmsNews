@@ -143,7 +143,9 @@ const PostboxArea = ({ style_details_2, blogDetails }) => {
                       <img
                         className="mb-20"
                         src={
-                          blogDetails?.img ? urlFor(blogDetails?.img).url() : ""
+                          blogDetails?.img?.asset?._ref
+                            ? urlFor(blogDetails?.img).url()
+                            : ""
                         }
                         alt={blogDetails?.title?.[locale]}
                       />

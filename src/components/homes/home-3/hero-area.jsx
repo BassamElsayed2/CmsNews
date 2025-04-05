@@ -137,14 +137,18 @@ const HeroArea = () => {
                 </div>
                 <div className="tp-hero-3-main-thumb z-index-5">
                   <img
-                    src={heroData?.image ? urlFor(heroData.image).url() : ""}
+                    src={
+                      heroData?.image?.asset?._ref
+                        ? urlFor(heroData.image).url()
+                        : ""
+                    }
                     alt="them-pure"
                   />
                 </div>
                 <div className="tp-hero-3-shape-5 d-none d-lg-block wow frist-img animated">
                   <img
                     src={
-                      heroData?.image_animation
+                      heroData?.image_animation?.asset?._ref
                         ? urlFor(heroData?.image_animation).url()
                         : ""
                     }

@@ -63,7 +63,9 @@ const OfficeLocation = ({ contactData }) => {
                   )} */}
                   <div className="contact-info-img">
                     <img
-                      src={item?.img ? urlFor(item?.img).url() : ""}
+                      src={
+                        item?.img?.asset?._ref ? urlFor(item?.img).url() : ""
+                      }
                       alt={item.location?.[locale]}
                     />
                   </div>

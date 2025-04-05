@@ -42,7 +42,7 @@ const BreadcrumbSix = ({ blogDetails }) => {
                   <div className="tp-blog-avata ml-5">
                     <img
                       src={
-                        blogDetails?.author_img
+                        blogDetails?.author_img?.asset?._ref
                           ? urlFor(blogDetails?.author_img).url()
                           : ""
                       }

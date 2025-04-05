@@ -129,7 +129,7 @@ const SalesArea = ({ style_service }) => {
                   <div className={`tp-sales-main-thumb`}>
                     <img
                       src={
-                        salesData?.mainImage
+                        salesData?.mainImage?.asset?._ref
                           ? urlFor(salesData?.mainImage).url()
                           : ""
                       }
@@ -139,7 +139,7 @@ const SalesArea = ({ style_service }) => {
                   <div className={`tp-sales-sub-img-1`}>
                     <img
                       src={
-                        salesData?.AnimatedImage
+                        salesData?.AnimatedImage?.asset?._ref
                           ? urlFor(salesData?.AnimatedImage).url()
                           : ""
                       }

@@ -25,7 +25,9 @@ const Offcanvus = ({ sidebarOpen, setSidebarOpen, menuData }) => {
             <Link href="/" onClick={() => setSidebarOpen(false)}>
               <img
                 src={
-                  menuData?.whitelogo ? urlFor(menuData?.whitelogo).url() : ""
+                  menuData?.whitelogo?.asset?._ref
+                    ? urlFor(menuData?.whitelogo).url()
+                    : ""
                 }
                 alt="theme-pure"
               />

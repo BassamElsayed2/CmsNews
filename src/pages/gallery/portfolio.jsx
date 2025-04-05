@@ -43,7 +43,9 @@ const Portfolio = () => {
                   <div className="inner-project-img fix p-relative">
                     <img
                       className="w-100"
-                      src={item.image ? urlFor(item.image).url() : ""}
+                      src={
+                        item.image?.asset?._ref ? urlFor(item.image).url() : ""
+                      }
                       alt="theme-pure"
                     />
                   </div>

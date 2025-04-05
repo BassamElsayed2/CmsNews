@@ -81,7 +81,11 @@ const FaqArea = ({ style_service }) => {
                     data-parallax='{"x": -50, "smoothness": 30}'
                   >
                     <img
-                      src={faqData?.Image ? urlFor(faqData?.Image).url() : ""}
+                      src={
+                        faqData?.Image?.asset?._ref
+                          ? urlFor(faqData?.Image).url()
+                          : ""
+                      }
                       alt=""
                     />
                   </div>

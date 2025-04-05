@@ -60,7 +60,11 @@ const ContactInner = ({ contactData }) => {
                   <div className="contact-inner-item d-flex align-items-center justify-content-center">
                     <div className="contact-inner-img contact-img-1">
                       <img
-                        src={item?.icon ? urlFor(item?.icon).url() : ""}
+                        src={
+                          item?.icon?.asset?._ref
+                            ? urlFor(item?.icon).url()
+                            : ""
+                        }
                         alt={item.title?.[locale]}
                       />
                     </div>

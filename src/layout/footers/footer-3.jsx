@@ -230,7 +230,7 @@ const FooterThree = () => {
                         <Link href="/">
                           <img
                             src={
-                              footerData?.bg_img
+                              footerData?.bg_img?.asset?._ref
                                 ? urlFor(footerData?.bg_img).url()
                                 : ""
                             }

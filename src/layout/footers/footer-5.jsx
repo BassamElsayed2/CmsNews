@@ -102,7 +102,7 @@ const FooterFive = ({ style_contact, bg_style = true, style_team }) => {
                     <Link href="/">
                       <img
                         src={
-                          footerData?.bg_img
+                          footerData?.bg_img?.asset?._ref
                             ? urlFor(footerData?.bg_img).url()
                             : ""
                         }

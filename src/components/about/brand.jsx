@@ -58,7 +58,9 @@ const Brand = ({ title, text, imgs }) => {
                       data-wow-duration=".9s"
                     >
                       <div className="ab-brand-item mb-25">
-                        <img src={urlFor(item).url() || ""} alt="brand" />
+                        {item?.asset?._ref && (
+                          <img src={urlFor(item).url()} alt="brand" />
+                        )}
                       </div>
                     </div>
                   ))}

@@ -87,7 +87,7 @@ const ServiceArea = () => {
                 <div className="tp-service-3-icon">
                   <img
                     src={
-                      serviceData?.mainCard.icon
+                      serviceData?.mainCard.icon?.asset?._ref
                         ? urlFor(serviceData?.mainCard.icon).url()
                         : ""
                     }
@@ -136,7 +136,9 @@ const ServiceArea = () => {
                 <div className="tp-service-sm-item mb-30 d-flex flex-column justify-content-between">
                   <div className="tp-service-sm-icon">
                     <img
-                      src={item.icon ? urlFor(item.icon).url() : ""}
+                      src={
+                        item.icon?.asset?._ref ? urlFor(item.icon).url() : ""
+                      }
                       alt={item.title.en}
                     />
                   </div>

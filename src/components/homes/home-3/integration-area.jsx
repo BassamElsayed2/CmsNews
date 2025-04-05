@@ -196,7 +196,11 @@ const IntegrationArea = ({ style_integraton }) => {
                     <div className="integration-card">
                       <div className="integration-icon">
                         <img
-                          src={item.image ? urlFor(item.image).url() : ""}
+                          src={
+                            item.image?.asset?._ref
+                              ? urlFor(item.image).url()
+                              : ""
+                          }
                           alt={item.text?.[locale]}
                         />
                       </div>
@@ -219,10 +223,12 @@ const IntegrationArea = ({ style_integraton }) => {
                   <div className="tp-integration-slider-item">
                     <div className="integration-card">
                       <div className="integration-icon">
-                        <img
-                          src={urlFor(item.image).url() || ""}
-                          alt={item.text?.[locale]}
-                        />
+                        {item?.image?.asset?._ref && (
+                          <img
+                            src={urlFor(item.image).url()}
+                            alt={item.text?.[locale]}
+                          />
+                        )}
                       </div>
                       <div className="integration-content">
                         <h4>{item.text?.[locale]}</h4>

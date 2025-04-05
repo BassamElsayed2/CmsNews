@@ -95,7 +95,9 @@ const Portfolio = () => {
                   <div className="tp-blog-thumb fix">
                     <Link href={`/${locale}/blog/${item.slug?.current}`}>
                       <img
-                        src={item?.img ? urlFor(item?.img).url() : ""}
+                        src={
+                          item?.img?.asset?._ref ? urlFor(item.img).url() : ""
+                        }
                         alt={item?.title?.[locale]}
                       />
                     </Link>
@@ -127,7 +129,9 @@ const Portfolio = () => {
                     <div className="tp-blog-avata">
                       <img
                         src={
-                          item?.author_img ? urlFor(item?.author_img).url() : ""
+                          item?.author_img?.asset?._ref
+                            ? urlFor(item?.author_img).url()
+                            : ""
                         }
                         alt={item.author_name?.[locale]}
                       />

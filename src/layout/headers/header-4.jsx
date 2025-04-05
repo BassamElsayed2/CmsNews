@@ -54,7 +54,7 @@ const HeaderFour = ({ style_error }) => {
                     <Link href="/">
                       <img
                         src={
-                          navData?.blacklogo
+                          navData?.blacklogo?.asset?._ref
                             ? urlFor(navData?.blacklogo).url()
                             : ""
                         }
@@ -66,7 +66,7 @@ const HeaderFour = ({ style_error }) => {
                       <Link className="white-logo" href="/">
                         <img
                           src={
-                            navData?.whitelogo
+                            navData?.whitelogo?.asset?._ref
                               ? urlFor(navData?.whitelogo).url()
                               : ""
                           }
@@ -76,7 +76,7 @@ const HeaderFour = ({ style_error }) => {
                       <Link className="black-logo" href="/">
                         <img
                           src={
-                            navData?.blacklogo
+                            navData?.blacklogo?.asset?._ref
                               ? urlFor(navData?.blacklogo).url()
                               : ""
                           }

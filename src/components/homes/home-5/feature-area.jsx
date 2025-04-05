@@ -106,7 +106,11 @@ const FeatureArea = ({ style_integraton }) => {
                   >
                     <div className="tp-feature-five-icon p-relative">
                       <img
-                        src={item?.image ? urlFor(item?.image).url() : ""}
+                        src={
+                          item?.image?.asset?._ref
+                            ? urlFor(item?.image).url()
+                            : ""
+                        }
                         alt="theme-pure"
                       />
                       <div
@@ -141,7 +145,11 @@ const FeatureArea = ({ style_integraton }) => {
                   >
                     <div className="tp-feature-five-icon p-relative">
                       <img
-                        src={item?.image ? urlFor(item?.image).url() : ""}
+                        src={
+                          item?.image?.asset?._ref
+                            ? urlFor(item?.image).url()
+                            : ""
+                        }
                         alt="theme-pure"
                       />
                       <div

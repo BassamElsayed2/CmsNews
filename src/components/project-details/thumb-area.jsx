@@ -13,7 +13,7 @@ const ThumbArea = ({ img }) => {
               <div className="pd-thumb">
                 {/* <Image src={thumb_img} alt="theme-pure" /> */}
                 <img
-                  src={img ? urlFor(img).url() : thumb_img}
+                  src={img?.asset?._ref ? urlFor(img).url() : thumb_img}
                   alt="theme-pure"
                 />
               </div>

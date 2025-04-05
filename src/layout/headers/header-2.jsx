@@ -56,7 +56,7 @@ const HeaderTwo = () => {
                   <Link className="white-logo" href="/">
                     <img
                       src={
-                        navData?.whitelogo
+                        navData?.whitelogo?.asset?._ref
                           ? urlFor(navData?.whitelogo).url()
                           : ""
                       }
@@ -66,7 +66,7 @@ const HeaderTwo = () => {
                   <Link className="black-logo" href="/">
                     <img
                       src={
-                        navData?.blacklogo
+                        navData?.blacklogo?.asset?._ref
                           ? urlFor(navData?.blacklogo).url()
                           : ""
                       }

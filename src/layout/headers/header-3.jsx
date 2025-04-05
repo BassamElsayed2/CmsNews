@@ -49,7 +49,7 @@ const HeaderThree = () => {
                   <Link href="/">
                     <img
                       src={
-                        navData?.blacklogo
+                        navData?.blacklogo?.asset?._ref
                           ? urlFor(navData?.blacklogo).url()
                           : ""
                       }

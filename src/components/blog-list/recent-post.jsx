@@ -61,7 +61,9 @@ const RecentPost = () => {
                 <div className="rc__post-thumb mr-20">
                   <Link href={`/${locale}/blog/${item?.slug.current}`}>
                     <img
-                      src={item?.img ? urlFor(item?.img).url() : ""}
+                      src={
+                        item?.img?.asset?._ref ? urlFor(item?.img).url() : ""
+                      }
                       alt={item?.title?.[locale]}
                     />
                   </Link>

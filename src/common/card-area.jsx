@@ -99,8 +99,8 @@ const CardArea = ({ style_service }) => {
                   <div className={`tp-card-main-img`}>
                     <img
                       src={
-                        cardData?.mainImage
-                          ? urlFor(cardData?.mainImage).url()
+                        cardData?.mainImage?.asset?._ref
+                          ? urlFor(cardData.mainImage).url()
                           : ""
                       }
                       alt="theme-pure"
