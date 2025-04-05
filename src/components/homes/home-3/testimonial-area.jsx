@@ -229,7 +229,7 @@ const TestimonialArea = () => {
                             </div>
                             <div className="tp-testimonial-3-thumb d-none d-md-block">
                               <img
-                                src={urlFor(item.img).url() || ""}
+                                src={item.img ? urlFor(item.img).url() : ""}
                                 alt="theme-pure"
                               />
                             </div>

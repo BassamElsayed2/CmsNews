@@ -80,7 +80,10 @@ const FaqArea = ({ style_service }) => {
                     className="tp-faq-img"
                     data-parallax='{"x": -50, "smoothness": 30}'
                   >
-                    <img src={urlFor(faqData.Image).url() || ""} alt="" />
+                    <img
+                      src={faqData?.Image ? urlFor(faqData?.Image).url() : ""}
+                      alt=""
+                    />
                   </div>
                 </div>
               </div>

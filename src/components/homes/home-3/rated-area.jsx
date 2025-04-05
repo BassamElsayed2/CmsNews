@@ -138,7 +138,7 @@ const GalleryArea = () => {
                 <div key={i} className="gallery-grid-item">
                   <Link href={`/${locale}/gallery/${item.slug?.current}`}>
                     <Image
-                      src={urlFor(item.image).url() || ""}
+                      src={item.image ? urlFor(item.image).url() : ""}
                       alt={item.text?.[locale]}
                       width={300}
                       height={300}

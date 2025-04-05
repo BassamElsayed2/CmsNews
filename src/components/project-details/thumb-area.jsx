@@ -12,7 +12,10 @@ const ThumbArea = ({ img }) => {
             <div className="col-12">
               <div className="pd-thumb">
                 {/* <Image src={thumb_img} alt="theme-pure" /> */}
-                <img src={urlFor(img).url() || thumb_img} alt="theme-pure" />
+                <img
+                  src={img ? urlFor(img).url() : thumb_img}
+                  alt="theme-pure"
+                />
               </div>
             </div>
           </div>

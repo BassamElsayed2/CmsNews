@@ -196,7 +196,7 @@ const IntegrationArea = ({ style_integraton }) => {
                     <div className="integration-card">
                       <div className="integration-icon">
                         <img
-                          src={urlFor(item.image).url() || ""}
+                          src={item.image ? urlFor(item.image).url() : ""}
                           alt={item.text?.[locale]}
                         />
                       </div>
