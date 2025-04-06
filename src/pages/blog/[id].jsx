@@ -37,7 +37,6 @@ function BlogDetails() {
           setBlogDetails(null);
         }
       } catch (error) {
-        console.error("Error fetching blog details:", error);
         setBlogDetails(null);
       } finally {
         setLoading(false);

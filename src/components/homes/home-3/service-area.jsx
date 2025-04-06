@@ -99,11 +99,7 @@ const ServiceArea = () => {
                 <div className="tp-service-3-content">
                   <span>{serviceData?.mainCard.title?.[locale]}</span>
                   <h4 className="tp-service-3-title-sm">
-                    <Link
-                      href={
-                        serviceData?.button.url ? `/${locale}/service` : " #"
-                      }
-                    >
+                    <Link href={`/${locale}/service`}>
                       {serviceData?.mainCard.description?.[locale]}
                     </Link>
                   </h4>

@@ -2,14 +2,12 @@ import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
-import useTitleAnimation from "@/src/hooks/useTitleAnimation";
-import Brwoser from "@/src/common/brwoser";
+
 import BounceLine from "@/src/svg/bounce-line";
 
 import left_shape from "../../../../public/assets/img/hero/hero-left-shape-3-1.png";
 import gradient_bg from "../../../../public/assets/img/hero/hero-gradient-3.jpg";
-import img_1 from "../../../../public/assets/img/hero/hero-img-3-1.png";
-import img_2 from "../../../../public/assets/img/hero/hero-img-3-1-3.png";
+
 import { useIsomorphicLayoutEffect } from "@/src/hooks/useIsomorphicEffect";
 import { useRouter } from "next/router";
 import { client } from "@/src/sanity/lib/client";
@@ -17,51 +15,43 @@ import { client } from "@/src/sanity/lib/client";
 import { urlFor } from "@/src/sanity/lib/image";
 import { heroFetch } from "@/src/sanity/lib/queries";
 
-// const hero_content = {
-//   title_1: (
-//     <>
-//       Great <span>Customer</span>
-//     </>
-//   ),
-//   title_2: "Relationships Start Here.",
-//   info: (
-//     <>
-//       Softec provides all customer management service within one software.{" "}
-//       <br /> Our landing works on all devices.
-//     </>
-//   ),
-//   btn_1: "Live Damo",
-//   btn_2: "Try it on Browser",
-// };
-// const { title_1, title_2, info, btn_1, btn_2 } = hero_content;
-
 const HeroArea = () => {
-  // let info_anim = useRef(null);
-
   const { locale } = useRouter();
 
   const [heroData, setHeroData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const query = heroFetch;
-      const data = await client.fetch(query);
-      setHeroData(data);
+      try {
+        const query = heroFetch;
+        const data = await client.fetch(query);
+        setHeroData(data);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
     };
-
     fetchData();
   }, []);
 
   useIsomorphicLayoutEffect(() => {
-    let tl = gsap.timeline({ default: { ease: "SlowMo.easeOut" } });
-    tl.to(".hero-text-anim i.child-1", {
-      y: "0px",
-      duration: 1,
-      opacity: 1,
-      stagger: 0.3,
-      delay: 0.5,
-    });
-  }, []);
+    if (heroData) {
+      let tl = gsap.timeline({ defaults: { ease: "SlowMo.easeOut" } });
+      tl.to(".hero-text-anim i.child-1", {
+        y: "0px",
+        duration: 1,
+        opacity: 1,
+        stagger: 0.3,
+        delay: 0.5,
+      });
+    }
+  }, [heroData]);
+
+  if (loading) return <div className="loading-spinner">Loading...</div>;
+  if (error) return <div className="error-message">Error: {error}</div>;
 
   return (
     <>
@@ -99,11 +89,7 @@ const HeroArea = () => {
                     className="tp-btn-blue-lg tp-btn-hover alt-color-black"
                     href={`${locale}${heroData?.buttons[0].url}`}
                   >
-                    <span>
-                      {locale === "en"
-                        ? heroData.buttons[0].text.en
-                        : heroData.buttons[0].text.ar}
-                    </span>
+                    <span>{heroData.buttons[0].text[locale]}</span>
                     <b></b>
                   </Link>
                 )}
@@ -111,13 +97,9 @@ const HeroArea = () => {
                 {heroData?.buttons?.[1]?.url && (
                   <Link
                     className="tp-btn-border tp-btn-hover alt-color-black"
-                    href={`${locale}${heroData?.buttons[0].url}`}
+                    href={`${locale}${heroData?.buttons[1].url}`}
                   >
-                    <span>
-                      {locale === "en"
-                        ? heroData.buttons[1].text.en
-                        : heroData.buttons[1].text.ar}
-                    </span>
+                    <span>{heroData.buttons[1].text[locale]}</span>
                     <b></b>
                   </Link>
                 )}
@@ -136,24 +118,33 @@ const HeroArea = () => {
                   <span className="redius-shape-3"></span>
                 </div>
                 <div className="tp-hero-3-main-thumb z-index-5">
-                  <img
+                  <Image
                     src={
                       heroData?.image?.asset?._ref
                         ? urlFor(heroData.image).url()
                         : ""
                     }
-                    alt="them-pure"
+                    alt="Hero Image"
+                    width={1200}
+                    height={630}
+                    priority
                   />
                 </div>
                 <div className="tp-hero-3-shape-5 d-none d-lg-block wow frist-img animated">
-                  <img
-                    src={
-                      heroData?.image_animation?.asset?._ref
-                        ? urlFor(heroData?.image_animation).url()
-                        : ""
-                    }
-                    alt="them-pure"
-                  />
+                  {heroData?.image_animation && (
+                    <Image
+                      src={
+                        heroData?.image_animation?.asset?._ref
+                          ? urlFor(heroData?.image_animation).url()
+                          : ""
+                      }
+                      alt="Animation Image"
+                      width={200}
+                      height={200}
+                      quality={70}
+                      priority
+                    />
+                  )}
                 </div>
                 <div className="tp-hero-3-shape-6 d-none d-lg-block">
                   <span>

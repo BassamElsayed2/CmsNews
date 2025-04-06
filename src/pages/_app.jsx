@@ -2,6 +2,7 @@ import "@/src/styles/index.scss";
 import { NextIntlProvider } from "next-intl";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import RouteLoadingProvider from "../common/RouteLoadingProvider";
 
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
@@ -24,7 +25,9 @@ export default function App({ Component, pageProps }) {
 
   return (
     <NextIntlProvider messages={messages} locale={locale}>
-      <Component {...pageProps} />
+      <RouteLoadingProvider>
+        <Component {...pageProps} />
+      </RouteLoadingProvider>
     </NextIntlProvider>
   );
 }

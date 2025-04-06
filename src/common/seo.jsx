@@ -35,7 +35,7 @@ const SEO = () => {
           name="viewport"
           content="width=device-width, initial-scale=1, shrink-to-fit=no"
         />
-        {seoData?.favicon && <link rel="icon" href={seoData.favicon} />}
+        {seoData?.favicon && <link rel="icon" href="/favicon.png" />}
       </Head>
     </>
   );

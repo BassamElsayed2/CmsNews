@@ -97,29 +97,17 @@ const ServiceArea = () => {
                 <div className="tp-service-3-content">
                   <span>{serviceData?.mainCard.title?.[locale]}</span>
                   <h4 className="tp-service-3-title-sm">
-                    <Link
-                      href={
-                        serviceData?.button.url
-                          ? `/${locale}/service/${serviceData?.mainCard.slug.current}`
-                          : " #"
-                      }
-                    >
-                      {serviceData?.mainCard.description?.[locale]}
-                    </Link>
+                    {serviceData?.mainCard.description?.[locale]}
                   </h4>
                 </div>
-                <div className="tp-service-3-btn">
+                {/* <div className="tp-service-3-btn">
                   <Link
                     className="tp-btn-white-solid"
-                    href={
-                      serviceData?.button.url
-                        ? `/${locale}/service/${serviceData?.mainCard.slug.current}`
-                        : " #"
-                    }
+                    href={serviceData?.button.url ? `/${locale}/service` : " #"}
                   >
                     {serviceData?.mainCard.button.text?.[locale]}
                   </Link>
-                </div>
+                </div> */}
                 <div className="tp-service-3-shape">
                   <Image src={service_img_2} alt="theme-pure" />
                 </div>

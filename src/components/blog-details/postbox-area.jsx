@@ -94,8 +94,6 @@ const {
 const PostboxArea = ({ style_details_2, blogDetails }) => {
   const { locale } = useRouter();
 
-  console.log(blogDetails);
-
   return (
     <>
       <div className={`postbox__area ${style_details_2 && "pt-100"} pb-100`}>

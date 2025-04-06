@@ -1,4 +1,6 @@
 import BreadcrumbEight from "@/src/common/breadcrumbs/breadcrumb-8";
+import LoadingPage from "@/src/common/LoadingPage";
+import SEO from "@/src/common/seo";
 import TestimonialArea from "@/src/components/homes/home-3/rated-area";
 import ProjectArea from "@/src/components/homes/home/project-area";
 import ProjectDetailsArea from "@/src/components/project-details/project-details-area";
@@ -39,7 +41,7 @@ function GalleryDetails() {
     fetchData();
   }, [id]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingPage />;
 
   if (
     !galleryDetails ||
@@ -52,6 +54,7 @@ function GalleryDetails() {
 
   return (
     <>
+      <SEO />
       <HeaderSix />
       <div id="smooth-wrapper">
         <div id="smooth-content">
