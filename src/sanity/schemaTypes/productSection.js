@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       name: "appear",
-      title: "Testimonial_Section",
+      title: "Product_Section",
       type: "boolean",
       initialValue: true,
       description: "Check this if the section should be appear.",
@@ -89,10 +89,16 @@ export default {
           type: "object",
           fields: [
             {
-              name: "image",
-              title: "Image",
+              name: "smallImage",
+              title: "Small Image",
               type: "image",
-              options: { hotspot: true }, // ✅ Better cropping experience
+              options: { hotspot: true },
+            },
+            {
+              name: "mainImage",
+              title: "Main Image",
+              type: "image",
+              options: { hotspot: true },
             },
             {
               name: "text",
@@ -160,10 +166,16 @@ export default {
           type: "object",
           fields: [
             {
-              name: "image",
-              title: "Image",
+              name: "smallImage",
+              title: "Small Image",
               type: "image",
-              options: { hotspot: true }, // ✅ Better cropping experience
+              options: { hotspot: true },
+            },
+            {
+              name: "mainImage",
+              title: "Main Image",
+              type: "image",
+              options: { hotspot: true },
             },
             {
               name: "text",

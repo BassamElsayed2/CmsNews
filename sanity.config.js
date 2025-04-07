@@ -17,6 +17,7 @@ export default defineConfig({
   basePath: "/studio",
   projectId: "tddwyho0",
   dataset: "production",
+  projectUrl: "https://cmsadmin.ens.eg/studio",
   // Add and edit the content schema in the './sanity/schemaTypes' folder
   schema,
   plugins: [

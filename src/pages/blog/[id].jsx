@@ -1,4 +1,5 @@
 import BreadcrumbSix from "@/src/common/breadcrumbs/breadcrumb-6";
+import LoadingPage from "@/src/common/LoadingPage";
 import SEO from "@/src/common/seo";
 import Banner from "@/src/components/blog-details/banner";
 import Portfolio from "@/src/components/blog-details/portfolio";
@@ -52,7 +53,7 @@ function BlogDetails() {
     }
   }, [loading, blogDetails, router]);
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <LoadingPage />;
 
   if (!blogDetails) return null;
 

@@ -135,6 +135,8 @@ const IntegrationArea = ({ style_integraton }) => {
     fetchData();
   }, []);
 
+  console.log("productData", productData?.slideOne[0].smallImage);
+
   return (
     <>
       {productData?.appear && (
@@ -197,8 +199,8 @@ const IntegrationArea = ({ style_integraton }) => {
                       <div className="integration-icon">
                         <img
                           src={
-                            item.image?.asset?._ref
-                              ? urlFor(item.image).url()
+                            item.smallImage?.asset?._ref
+                              ? urlFor(item.smallImage).url()
                               : ""
                           }
                           alt={item.text?.[locale]}
@@ -223,9 +225,9 @@ const IntegrationArea = ({ style_integraton }) => {
                   <div className="tp-integration-slider-item">
                     <div className="integration-card">
                       <div className="integration-icon">
-                        {item?.image?.asset?._ref && (
+                        {item?.smallImage.asset?._ref && (
                           <img
-                            src={urlFor(item.image).url()}
+                            src={urlFor(item.smallImage).url()}
                             alt={item.text?.[locale]}
                           />
                         )}
