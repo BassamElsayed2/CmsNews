@@ -98,7 +98,7 @@ const FeatureArea = ({ style_integraton }) => {
             </div>
           </div>
           <div className="row gx-0 tp-feature-five-wrapper-main">
-            {productData?.slideOne.map((item, i) => (
+            {productData?.slideOne.slice(0, 5).map((item, i) => (
               <div key={i} className="col-xl-3 col-lg-6 col-md-6">
                 <div className="tp-feature-five-wrapper">
                   <div
@@ -121,12 +121,12 @@ const FeatureArea = ({ style_integraton }) => {
                       <h4 className="tp-feature-five-title-sm">
                         {item.text?.[locale]}
                       </h4>
-                      <p>{item.description?.[locale]}</p>
+                      <p>{item.smallDescription?.[locale]}</p>
                     </div>
                     <div className="tp-feature-five-btn">
                       <Link
                         className="tp-btn-purple"
-                        href={`/${locale}/service`}
+                        href={`/${locale}/products/${item.slug.current}`}
                       >
                         Learn More
                       </Link>
@@ -137,7 +137,7 @@ const FeatureArea = ({ style_integraton }) => {
             ))}
           </div>
           <div className="row gx-0 tp-feature-five-wrapper-main">
-            {productData?.slideTwo.map((item, i) => (
+            {productData?.slideTwo.slice(0, 4).map((item, i) => (
               <div key={i} className="col-xl-3 col-lg-6 col-md-6">
                 <div className="tp-feature-five-wrapper">
                   <div
@@ -160,7 +160,7 @@ const FeatureArea = ({ style_integraton }) => {
                       <h4 className="tp-feature-five-title-sm">
                         {item.text?.[locale]}
                       </h4>
-                      <p>{item.description?.[locale]}</p>
+                      <p>{item.smallDescription?.[locale]}</p>
                     </div>
                     <div className="tp-feature-five-btn">
                       <Link

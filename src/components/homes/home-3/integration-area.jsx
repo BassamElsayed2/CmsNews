@@ -135,8 +135,6 @@ const IntegrationArea = ({ style_integraton }) => {
     fetchData();
   }, []);
 
-  console.log("productData", productData?.slideOne[0].smallImage);
-
   return (
     <>
       {productData?.appear && (
@@ -192,8 +190,12 @@ const IntegrationArea = ({ style_integraton }) => {
             style={{ backgroundImage: `url(${bg_img})` }}
           >
             <Slider {...setting_one} className="tp-integration-slider-active">
-              {productData?.slideOne.map((item, i) => (
-                <div key={i} className="tp-integration-slider-main slick-slide">
+              {productData?.slideOne.slice(0, 5).map((item, i) => (
+                <Link
+                  key={i}
+                  href={`/${locale}/products/${item.slug.current}`}
+                  className="tp-integration-slider-main slick-slide"
+                >
                   <div className="tp-integration-slider-item">
                     <div className="integration-card">
                       <div className="integration-icon">
@@ -208,11 +210,11 @@ const IntegrationArea = ({ style_integraton }) => {
                       </div>
                       <div className="integration-content">
                         <h4>{item.text?.[locale]}</h4>
-                        <p>{item.description?.[locale]}</p>
+                        <p>{item.smallDescription?.[locale]}</p>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </Slider>
             <Slider
@@ -220,8 +222,12 @@ const IntegrationArea = ({ style_integraton }) => {
               className="tp-integration-slider-active-2 carousel-rtl"
               dir="rtl"
             >
-              {productData?.slideTwo.map((item, i) => (
-                <div key={i} className="tp-integration-slider-main slick-slide">
+              {productData?.slideTwo.slice(0, 5).map((item, i) => (
+                <Link
+                  key={i}
+                  href={`/${locale}/products/${item.slug.current}`}
+                  className="tp-integration-slider-main slick-slide"
+                >
                   <div className="tp-integration-slider-item">
                     <div className="integration-card">
                       <div className="integration-icon">
@@ -234,11 +240,11 @@ const IntegrationArea = ({ style_integraton }) => {
                       </div>
                       <div className="integration-content">
                         <h4>{item.text?.[locale]}</h4>
-                        <p>{item.description?.[locale]}</p>
+                        <p>{item.smallDescription?.[locale]}</p>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </Slider>
           </div>

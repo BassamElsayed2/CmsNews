@@ -120,13 +120,39 @@ export default {
               ],
             },
             {
-              name: "description",
-              title: "Description",
+              name: "smallDescription",
+              title: "Small Description",
               type: "object",
               fields: [
-                { name: "en", title: "English", type: "text" },
-                { name: "ar", title: "Arabic", type: "text" },
+                { name: "en", title: "English", type: "string" },
+                { name: "ar", title: "Arabic", type: "string" },
               ],
+            },
+            {
+              name: "otherDescriptions",
+              title: "Other Descriptions",
+              type: "array",
+              of: [
+                {
+                  type: "object",
+                  fields: [
+                    {
+                      name: "en",
+                      title: "English",
+                      type: "text",
+                      validation: (Rule) => Rule.required(),
+                    },
+                    {
+                      name: "ar",
+                      title: "Arabic",
+                      type: "text",
+                      validation: (Rule) => Rule.required(),
+                    },
+                  ],
+                },
+              ],
+              validation: (Rule) =>
+                Rule.min(1).error("يمكنك إدخال  فقره كحد أدني"),
             },
             {
               name: "slug",
@@ -197,13 +223,39 @@ export default {
               ],
             },
             {
-              name: "description",
-              title: "Description",
+              name: "smallDescription",
+              title: "Small Description",
               type: "object",
               fields: [
-                { name: "en", title: "English", type: "text" },
-                { name: "ar", title: "Arabic", type: "text" },
+                { name: "en", title: "English", type: "string" },
+                { name: "ar", title: "Arabic", type: "string" },
               ],
+            },
+            {
+              name: "otherDescriptions",
+              title: "Other Descriptions",
+              type: "array",
+              of: [
+                {
+                  type: "object",
+                  fields: [
+                    {
+                      name: "en",
+                      title: "English",
+                      type: "text",
+                      validation: (Rule) => Rule.required(),
+                    },
+                    {
+                      name: "ar",
+                      title: "Arabic",
+                      type: "text",
+                      validation: (Rule) => Rule.required(),
+                    },
+                  ],
+                },
+              ],
+              validation: (Rule) =>
+                Rule.min(1).error("يمكنك إدخال  فقره كحد أدني"),
             },
             {
               name: "slug",

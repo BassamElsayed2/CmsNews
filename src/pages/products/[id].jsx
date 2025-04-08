@@ -32,9 +32,15 @@ function ProductDetails() {
 }`;
         const data = await client.fetch(query, { id });
 
+        if (!data?.slideOne && !data?.slideTwo) {
+          router.replace("/404");
+          return;
+        }
+
         setProductDetails(data);
       } catch (error) {
         console.error("Error fetching gallery details:", error);
+        router.replace("/404");
       }
       setLoading(false);
     };
@@ -44,14 +50,6 @@ function ProductDetails() {
 
   if (loading) return <LoadingPage />;
 
-  // // التأكد من وجود المنتج والصورة
-  // if (!productDetails || !productDetails.image) {
-  //   router.replace("/404");
-  //   return null;
-  // }
-
-  console.log(productDetails);
-
   return (
     <>
       <SEO />
@@ -59,32 +57,41 @@ function ProductDetails() {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            {productDetails?.slideOne && (
-              <BreadcrumbEight
-                title={productDetails?.slideOne?.text?.[locale]}
-                sub_title={productDetails?.image?.subTitle?.[locale]}
-              />
-            )}
-            {productDetails?.slideTwo && (
-              <BreadcrumbEight
-                title={productDetails?.slideTwo?.text?.[locale]}
-              />
-            )}
-            {productDetails?.slideOne && (
-              <ThumbArea img={productDetails?.slideOne?.mainImage} />
-            )}
-            {productDetails?.slideTwo && (
-              <ThumbArea img={productDetails?.slideTwo?.mainImage} />
-            )}
-            {productDetails?.slideOne && (
-              <ProjectDetailsArea
-                desc={productDetails?.slideOne?.description?.[locale]}
-              />
-            )}
-            {productDetails?.slideTwo && (
-              <ProjectDetailsArea
-                desc={productDetails?.slideTwo?.description?.[locale]}
-              />
+            {[productDetails?.slideOne, productDetails?.slideTwo].map(
+              (slide, index) =>
+                slide && (
+                  <React.Fragment key={index}>
+                    <BreadcrumbEight
+                      title={slide?.text?.[locale]}
+                      sub_title={
+                        index === 0
+                          ? productDetails?.image?.subTitle?.[locale]
+                          : undefined
+                      }
+                    />
+                    <ThumbArea img={slide?.mainImage} />
+
+                    <div className="pd-details-area pt-100 pb-100">
+                      <div className="container">
+                        <div className="row g-0">
+                          <div className="col-xl-10 col-lg-10 ">
+                            <div className="pd-details-wrapper">
+                              <h4 className="pd-details-title">
+                                {locale === "ar" ? "تفاصيل" : "Overview"}
+                              </h4>
+
+                              {slide.otherDescriptions.map((desc, i) =>
+                                desc?.[locale] ? (
+                                  <p key={i}>{desc[locale]}</p>
+                                ) : null
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </React.Fragment>
+                )
             )}
             <TestimonialArea />
           </main>
