@@ -157,6 +157,7 @@
     background: var(--tp-theme-1);
     transition: 1s ease;
     border: none;
+    z-index: 100;
   }
   .scroll-top.open {
     bottom: 80px;

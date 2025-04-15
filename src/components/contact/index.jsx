@@ -45,7 +45,7 @@ const Contact = () => {
             <OfficeLocation contactData={contactData?.offices} />
             <ContactFormArea />
             <ContactInner contactData={contactData?.contact_data} />
-            <CtaArea />
+            {/* <CtaArea /> */}
           </main>
           <FooterFive style_contact={true} style_team={true} />
         </div>

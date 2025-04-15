@@ -272,6 +272,7 @@
         position: absolute;
         left: 0;
         right: 0;
+        top:52px;
     }
     &__plr-4{
         padding: 0px 315px;
@@ -870,3 +871,349 @@
         }      
     }
 }
+
+.header {
+    background-color: inherit;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid #ddd;
+    position: absolute;
+    z-index: 100;
+    
+  }
+  .fixed{
+    width: 100%;
+    
+  }
+  .container-navigation {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+  }
+  .date-icon{
+    color: #5b6cff;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .date-header {
+    color: #000;
+    font-size: 14px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  
+    span {
+      line-height: 1.4;
+    }
+  }
+  
+  /* SearchBar.scss */
+//   .search-bar {
+//     display: flex;
+//     align-items: center;
+//     border: 1px solid #ccc;
+//     border-radius: 20px;
+//     overflow: hidden;
+//     background-color: white;
+
+  
+//     input {
+//       border: none;
+//       padding: 0.5rem 1rem;
+//       flex: 1;
+//       font-size: 1rem;
+      
+  
+//       &:focus {
+//         outline: none;
+//       }
+//     }
+  
+//     button {
+      
+//       color: black;
+//       border: none;
+//       padding: 0.5rem 1rem;
+//       display: flex;
+//       align-items: center;
+//       cursor: pointer;
+//     }
+//   }
+  /* From Uiverse.io by LightAndy1 */ 
+  .group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    width: 300px;
+  }
+  
+  .input {
+    width: 100%;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 40px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: 0.3s ease;
+  }
+  
+  .input::placeholder {
+    color: #9e9ea7;
+  }
+  
+  .input:focus,
+  .input:hover {
+    outline: none;
+    border-color: rgba(0, 48, 73, 0.4);
+    background-color: #fff;
+    box-shadow: 0 0 0 4px rgb(0 48 73 / 10%);
+  }
+  // filter
+
+  .custom-select-wrapper {
+    position: relative;
+    display: inline-block;
+    max-width: 190px;
+    width: 100%;
+  
+    .custom-select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      height: 40px;
+      padding: 0 1rem;
+      padding-right: 2.5rem;
+      border: 2px solid transparent;
+      border-radius: 40px;
+      background-color: #f3f3f4;
+      color: #0d0c22;
+      font-size: 14px;
+      transition: 0.3s ease;
+      cursor: pointer;
+  
+      &:hover,
+      &:focus {
+        outline: none;
+        border-color: rgba(0, 48, 73, 0.4);
+        background-color: #fff;
+        box-shadow: 0 0 0 4px rgb(0 48 73 / 10%);
+      }
+    }
+  
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid #555;
+      transform: translateY(-50%);
+    }
+  }
+  
+  
+  
+  .icon {
+    position: absolute;
+    left: 1rem;
+    fill: #9e9ea7;
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  
+
+  /* NewsTicker.scss */
+  .news-ticker {
+    display: flex;
+    align-items: center;
+    background: rgba(67, 67, 67, 0.1);
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    overflow: hidden;
+    border-radius: 20px;
+    
+    font-size: 1rem;
+    width: 600px;
+    margin-bottom: 20px;
+  
+    .label {
+      margin-left: 1rem;
+      white-space: nowrap;
+    }
+  
+    .news-content {
+      animation: slide 1s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+  
+  @keyframes slide {
+    from {
+      transform: translateX(100%);
+    }
+  
+    to {
+      transform: translateX(0%);
+    }
+  }
+  
+  .searchHeader {
+    position: absolute;
+    top: 146px;
+    z-index: 100;
+    width: 100%;
+  }
+  
+  .headerContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    height: 45px;
+    flex-wrap: wrap;
+    padding: 2rem 1rem;
+  }
+  
+  .newsContainer {
+    flex: 1;
+  }
+  
+  /* 📱 Responsive tweaks */
+  @media (max-width: 768px) {
+    .news-ticker {
+      margin-left: 0;
+      align-items: flex-start;
+      font-size: 0.9rem;
+      padding: 0.5rem;
+      border-radius: 10px;
+      gap: 0.5rem;
+      width:500px
+    }
+  
+    .headerContainer {
+     
+      height: auto;
+      gap: 0.5rem;
+    }
+  
+    .searchHeader {
+      top: 120px;
+      padding: 0 1rem;
+    }
+  
+    .newsContainer {
+      width: 60%;
+    }
+  }
+
+  @media (max-width: 500px){
+    .news-ticker{
+        width:250px;
+    }
+
+  }
+
+  .search-bar{
+    margin-bottom: 20px;
+  }
+  
+  /* From Uiverse.io by david-mohseni */ 
+.wrapper {
+    display: inline-flex;
+    list-style: none;
+    width: 100%;
+    font-family: "Poppins", sans-serif;
+    justify-content: center;
+  }
+  
+  .wrapper .icon {
+    position: relative;
+    background: #fff;
+    border-radius: 50%;
+    margin: 0 10px 20px;
+    width: 25px;
+    height: 25px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip {
+    position: absolute;
+    top: 0;
+    font-size: 14px;
+    background: #fff;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .tooltip::before {
+    position: absolute;
+    content: "";
+    height: 8px;
+    width: 8px;
+    background: #fff;
+    bottom: -3px;
+    left: 50%;
+    transform: translate(-50%) rotate(45deg);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  
+  .wrapper .icon:hover .tooltip {
+    top: -45px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+  
+  .wrapper .icon:hover span,
+  .wrapper .icon:hover .tooltip {
+    text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.1);
+  }
+  
+  .wrapper .facebook:hover,
+  .wrapper .facebook:hover .tooltip,
+  .wrapper .facebook:hover .tooltip::before {
+    background: #1877f2;
+    color: #fff;
+  }
+  
+  .wrapper .twitter:hover,
+  .wrapper .twitter:hover .tooltip,
+  .wrapper .twitter:hover .tooltip::before {
+    background: #1da1f2;
+    color: #fff;
+  }
+  
+  .wrapper .instagram:hover,
+  .wrapper .instagram:hover .tooltip,
+  .wrapper .instagram:hover .tooltip::before {
+    background: #e4405f;
+    color: #fff;
+  }
+  

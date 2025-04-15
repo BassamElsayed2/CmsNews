@@ -15,7 +15,7 @@ const Gallery = () => {
       <main>
         <BreadcrumbSeven />
         <Portfolio />
-        <CtaArea />
+        {/* <CtaArea /> */}
       </main>
       <FooterFive style_contact={true} style_team={true} />
     </Wrapper>

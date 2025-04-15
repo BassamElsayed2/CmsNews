@@ -29,3 +29,29 @@ export const footerFetch = `*[_type == "footer"][0]`;
 export const productFetch = `*[_type == "product"][0]`;
 
 export const aboutFetch = `*[_type == "about"][0]`;
+
+export const newsFetch = `*[_type == "news"][0]`;
+
+export const categoryFetch = `*[_type == "category"]`;
+
+export const adsFetch = `*[_type == "adsSection"][0]`;
+
+export const newsFetchWithSearchAndFilter = (
+  searchTerm = "",
+  categoryId = ""
+) => {
+  const search = searchTerm
+    ? `&& (mainCard.title[$locale] match "*${searchTerm}*" || mainCard.description[$locale] match "*${searchTerm}*")`
+    : "";
+  const categoryFilter = categoryId
+    ? `&& mainCard.category._ref == "${categoryId}"`
+    : "";
+
+  return `
+      {
+        "headerTitle": *[_type == "newsSection"][0].headerTitle,
+        "mainCard": *[_type == "news" ${search} ${categoryFilter}][0],
+        "otherCards": *[_type == "news" ${search} ${categoryFilter}][1...5],
+      }
+    `;
+};

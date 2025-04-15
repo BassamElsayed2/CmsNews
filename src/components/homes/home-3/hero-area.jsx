@@ -62,7 +62,7 @@ const HeroArea = () => {
         <div className="tp-hero-gradient-bg">
           <Image src={gradient_bg} alt="them-pure" />
         </div>
-        <div className="container">
+        <div className="container mt-100">
           <div className="row justify-content-center z-index-3">
             <div className="col-xl-11">
               <div className="tp-hero-title-box text-center">

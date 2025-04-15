@@ -50,45 +50,6 @@ const Portfolio = () => {
           </div>
 
           <div className="row grid blog-grid-inner" ref={dataRef}>
-            {/* {items.map((item, i) => (
-              <div
-                key={i}
-                data-index={i}
-                className="col-xl-4 col-lg-6 col-md-6 mb-30 grid-item cat1 cat4 cat3 cat5"
-              >
-                <div className="tp-blog-item">
-                  <div className="tp-blog-thumb fix">
-                    <Link href="/blog-details">
-                      <Image src={item.thumb_img} alt="theme-pure" />
-                    </Link>
-                  </div>
-                  <div className="tp-blog-content">
-                    <div className="tp-blog-meta d-flex align-items-center">
-                      <div className="tp-blog-category category-color-1">
-                        <span>{item.category}</span>
-                      </div>
-                      <div className="tp-blog-date">
-                        <span>{item.date}</span>
-                      </div>
-                    </div>
-                    <div className="tp-blog-title-box">
-                      <Link className="tp-blog-title-sm" href="/blog-details">
-                        {item.title}
-                      </Link>
-                    </div>
-                    <div className="tp-blog-author-info-box d-flex align-items-center">
-                      <div className="tp-blog-avata">
-                        <Image src={item.avata_img} alt="theme-pure" />
-                      </div>
-                      <div className="tp-blog-author-info">
-                        <h5>{item.name}</h5>
-                        <span>{item.job_title}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))} */}
             {blogData?.posts.map((item, i) => (
               <div key={i} className="col-xl-4 col-lg-4 col-md-6 mb-60">
                 <div className="tp-blog-item">

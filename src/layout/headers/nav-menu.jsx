@@ -2,12 +2,18 @@ import Link from "next/link";
 import React from "react";
 import menu_data from "./menu-data";
 import { useRouter } from "next/router";
+import { FaHome } from "react-icons/fa";
 
 const NavMenu = ({ links }) => {
   const { locale } = useRouter();
   return (
     <>
       <ul>
+        <li>
+          <Link href={`${locale}`}>
+            {locale === "en" ? "Home" : "الرئيسية"}
+          </Link>
+        </li>
         {links?.map((menu_item, i) => (
           <li key={i}>
             <Link href={`${locale}${menu_item.url}`}>

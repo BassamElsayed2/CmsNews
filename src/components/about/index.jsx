@@ -62,9 +62,9 @@ const About = () => {
       {/* <AboutArea /> */}
       {/* <TeamArea bg_style={true} /> */}
       {/* <JourneyArea /> */}
-      <CardArea />
+      {/* <CardArea /> */}
       {/* <JobArea /> */}
-      <CtaArea />
+      {/* <CtaArea /> */}
       <FooterFive style_contact={true} style_team={true} />
     </>
   );

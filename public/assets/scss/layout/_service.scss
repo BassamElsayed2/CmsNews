@@ -1161,3 +1161,215 @@
     transform: rotate(360deg);
   }
 }
+
+.catergory {
+  padding: 2rem 1rem;
+}
+
+.investigations-section {
+  
+
+  .section-header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 100;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .see-all {
+      font-size: 0.9rem;
+      color: #5b6cff;
+      text-decoration: none;
+    }
+  }
+
+
+  .main-card {
+    display: flex;
+    flex-direction: row-reverse; // الصورة على اليمين
+    gap: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    max-height: 200px;
+
+    img {
+      width: 40%;
+      object-fit: cover;
+      height: auto;
+    }
+
+    .main-content {
+      padding: 1rem;
+
+      h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .date {
+        font-size: 0.8rem;
+        color: #888;
+        display: block;
+        margin-bottom: 0.8rem;
+      }
+
+      p {
+        font-size: 1rem;
+        color: #333;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .small-card {
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    h4 {
+      font-size: 1rem;
+      padding: 0.5rem;
+    }
+
+    .date {
+      font-size: 0.75rem;
+      color: #777;
+      padding: 0 0.5rem 0.8rem;
+      display: block;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .main-card {
+      flex-direction: column;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+  }
+}
+
+.content-wrapper {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+
+}
+.cards-column {
+  flex: 1;
+  z-index: 100;
+}
+
+
+
+.slider-column {
+  width: 300px;
+  height: 700px;
+  display: none;
+  border: 10px solid #f3f3f3;
+  z-index: 100;
+
+  @media (min-width: 1025px) {
+    display: block;
+  }
+  @media (max-width: 1200px) {
+    height: 920px;
+  }
+
+
+  .slick-slider,
+  .slick-list,
+  .slick-track {
+    height: 100% !important; // ← مهمة جداً
+  }
+
+  .slider-card {
+    display: flex !important;
+    flex-direction: column;
+    height: 100%;
+    padding: 1rem;
+    background-color: #f3f3f3;
+    border-radius: 10px;
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .slider-text {
+      padding-top: 1rem;
+
+      h4 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #555;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+
+@mixin line-clamp($lines) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.main-content {
+  h3 {
+    @include line-clamp(1); // العنوان في سطر واحد
+  }
+
+  p {
+    @include line-clamp(2); // الفقرة في سطرين
+  }
+}
+.slider-column {
+  h4 {
+    @include line-clamp(1); // العنوان في سطر واحد
+  }
+
+  p {
+    @include line-clamp(2); // الفقرة في سطرين
+  }
+}
+

@@ -10,6 +10,10 @@ import { useRouter } from "next/router";
 import { navMenuFetch } from "@/src/sanity/lib/queries";
 import { client } from "@/src/sanity/lib/client";
 import { urlFor } from "@/src/sanity/lib/image";
+import SideHeader from "./SideHeader";
+import HeaderFour from "./header-4";
+import Search from "@/src/components/blog-list/search";
+import SearchHeader from "./SearchHeader";
 
 const HeaderThree = () => {
   const { sticky } = useSticky();
@@ -37,6 +41,7 @@ const HeaderThree = () => {
 
   return (
     <>
+      <SideHeader logo={navData?.blacklogo} />
       <header className="tp-header-height">
         <div
           id="header-sticky"
@@ -44,21 +49,8 @@ const HeaderThree = () => {
         >
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-4 col-6">
-                <div className="header-bottom__logo">
-                  <Link href="/">
-                    <img
-                      src={
-                        navData?.blacklogo?.asset?._ref
-                          ? urlFor(navData?.blacklogo).url()
-                          : ""
-                      }
-                      alt="Logo"
-                    />
-                  </Link>
-                </div>
-              </div>
-              <div className="col-xxl-6 col-xl-6 col-lg-6 d-none d-lg-block">
+             
+              <div className="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
                 <div className="header-bottom__main-menu header-bottom__main-menu-3">
                   <nav id="mobile-menu">
                     <NavMenu links={navData?.links} />
@@ -73,10 +65,7 @@ const HeaderThree = () => {
                               </Link>
                            </div> */}
                   <div className="header-bottom__btn d-flex align-items-center">
-                    {/* <Link className="tp-btn-blue-sm d-none d-md-inline-block tp-btn-hover alt-color-black" href="/service-details">
-                                 <span>Get Free</span>
-                                 <b></b>
-                              </Link> */}
+                  
                     <a
                       className="header-bottom__bar tp-menu-bar d-lg-none mr-20"
                       onClick={() => setSidebarOpen(true)}
@@ -101,6 +90,7 @@ const HeaderThree = () => {
         setSidebarOpen={setSidebarOpen}
         menuData={navData}
       />
+      <SearchHeader />
     </>
   );
 };

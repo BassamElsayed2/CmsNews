@@ -8,6 +8,7 @@ import HeaderFour from "../layout/headers/header-4";
 import error_shape_1 from "../../public/assets/img/login/error-shape.png";
 import error_shape_2 from "../../public/assets/img/login/text-404.png";
 import Image from "next/image";
+import FooterThree from "../layout/footers/footer-3";
 
 
 const index = () => {
@@ -45,7 +46,7 @@ const index = () => {
               </div>
             </div>
           </main>
-          <Footer />
+          <FooterThree />
         </div>
       </div>
     </>

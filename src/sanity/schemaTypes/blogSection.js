@@ -181,21 +181,9 @@ export default {
                 Rule.min(3).error("يمكنك إدخال 3 فقرات كحد أدني"),
             },
             {
-              name: "qoute",
-              title: "Qoute",
-              type: "object",
-              fields: [
-                {
-                  name: "en",
-                  title: "English",
-                  type: "string",
-                },
-                {
-                  name: "ar",
-                  title: "Arabic",
-                  type: "string",
-                },
-              ],
+              name: "vdieoCode",
+              title: "vdieo Code",
+              type: "string",
             },
           ],
         },

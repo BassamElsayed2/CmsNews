@@ -166,7 +166,7 @@ const PostboxArea = ({ style_details_2, blogDetails }) => {
                   <div className="postbox__details-title-box pb-15">
                     <p>{blogDetails?.articalText[3]?.[locale]}</p>
                   </div>
-                  {blogDetails?.qoute && (
+                  {/* {blogDetails?.qoute && (
                     <div className="postbox__details-qoute mb-30">
                       <blockquote className="d-flex align-items-start">
                         <div className="postbox__details-qoute-icon">
@@ -177,7 +177,7 @@ const PostboxArea = ({ style_details_2, blogDetails }) => {
                         </div>
                       </blockquote>
                     </div>
-                  )}
+                  )} */}
                   <div className="postbox__details-title-box pb-15">
                     <p>{blogDetails?.articalText[4]?.[locale]}</p>
                   </div>

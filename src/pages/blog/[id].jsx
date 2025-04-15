@@ -44,8 +44,12 @@ function BlogDetails() {
       }
     };
 
+    
+
     fetchData();
   }, [id]);
+
+  console.log(blogDetails)
 
   useEffect(() => {
     if (!loading && !blogDetails) {
@@ -65,7 +69,7 @@ function BlogDetails() {
         <div id="smooth-content">
           <main>
             <BreadcrumbSix blogDetails={blogDetails} />
-            <Banner />
+            <Banner vCode={blogDetails.vdieoCode} />
             <PostboxArea blogDetails={blogDetails} />
             {/* <Portfolio /> */}
             <BlogArea />
