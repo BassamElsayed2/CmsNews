@@ -5,11 +5,12 @@ import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import left_shape from "../../public/assets/img/hero/hero-left-shape-3-1.png";
 import gradient_bg from "../../public/assets/img/hero/hero-gradient-3.jpg";
 import Image from "next/image";
-import { newsFetch } from "../sanity/lib/queries";
+import { newsFetch, sliderFetch } from "../sanity/lib/queries";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { client } from "../sanity/lib/client";
 import { urlFor } from "../sanity/lib/image";
+import Link from "next/link";
 
 const slides = [
   {
@@ -48,28 +49,13 @@ const HeroSlider = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const query = `
-  *[_type == "news"][0]{
-    otherCards[category._ref == "05b2e7ba-21c7-4d0d-b911-7ecbbf0a2d83"]{
-      image,
-      title,
-      slug,
-      description,
-      category->{
-        _id,
-        title
-      }
-    }
-  }
-`;
+      const query = sliderFetch;
       const data = await client.fetch(query);
       setNewsData(data);
     };
 
     fetchData();
   }, []);
-
-  console.log(newsData);
 
   const settings = {
     dots: false,
@@ -91,11 +77,15 @@ const HeroSlider = () => {
       <div className="tp-hero-gradient-bg">
         <Image src={gradient_bg} alt="them-pure" />
       </div>
-      <div className=" mt-120">
+      <div className="sliderContainer mt-120">
         <div className={"sliderWrapper"}>
           <Slider {...settings}>
-            {newsData?.otherCards?.map((slide, index) => (
-              <div key={index} className={"slideCard"}>
+            {newsData?.mainCards?.map((slide, index) => (
+              <Link
+                key={index}
+                href={`${locale}/news/${slide.slug?.current}`}
+                className={"slideCard"}
+              >
                 {/* <img src={slide.image} alt={slide.title?.[locale]} /> */}
                 <img
                   src={
@@ -107,9 +97,27 @@ const HeroSlider = () => {
                   <h3>{slide.title?.[locale]}</h3>
                   <p>{slide.description?.[locale]}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </Slider>
+        </div>
+        <div className="sideCards">
+          {newsData?.sideCards.map((slide, index) => (
+            <Link
+              key={index}
+              href={`${locale}/news/${slide.slug?.current}`}
+              className="sideCard"
+            >
+              <img
+                src={slide.image?.asset?._ref ? urlFor(slide.image).url() : ""}
+                alt="theme-pure"
+              />
+              <div className="content">
+                <h3>{slide.title?.[locale]}</h3>
+                <p>{slide.description?.[locale]}</p>
+              </div>
+            </Link>
+          ))}
         </div>
       </div>
     </section>

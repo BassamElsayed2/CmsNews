@@ -49,7 +49,6 @@ const HeaderThree = () => {
         >
           <div className="container">
             <div className="row align-items-center">
-             
               <div className="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
                 <div className="header-bottom__main-menu header-bottom__main-menu-3">
                   <nav id="mobile-menu">
@@ -65,7 +64,6 @@ const HeaderThree = () => {
                               </Link>
                            </div> */}
                   <div className="header-bottom__btn d-flex align-items-center">
-                  
                     <a
                       className="header-bottom__bar tp-menu-bar d-lg-none mr-20"
                       onClick={() => setSidebarOpen(true)}

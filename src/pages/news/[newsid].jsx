@@ -23,35 +23,49 @@ const ServiceDetails = () => {
 
   useEffect(() => {
     if (!newsid) return;
-  
+
     const fetchData = async () => {
       setLoading(true);
       try {
         const query = `
-          *[_type == "news"][0] {
-            "mainMatch": mainCard.slug.current == $newsid,
-            mainCard,
-            "matchedOtherCard": otherCards[slug.current == $newsid][0],
-            "matchedSliderCard": sliderCards[slug.current == $newsid][0]
-          }
-        `;
+{
+  "fromNews": *[_type == "news"][0] {
+    "mainMatch": mainCard.slug.current == $newsid,
+    mainCard,
+    "matchedOtherCard": otherCards[slug.current == $newsid][0],
+    "matchedSliderCard": sliderCards[slug.current == $newsid][0]
+  },
+  "fromSliderHero": *[_type == "sliderHero"][0] {
+    "matchedMainCard": mainCards[slug.current == $newsid][0],
+    "matchedSideCard": sideCards[slug.current == $newsid][0]
+  },
+  "fromImportantNews": *[_type == "importantNews"][0].news[slug.current == $newsid]
+
+}
+`;
         const data = await client.fetch(query, { newsid });
-  
+
         let selectedCard = null;
-  
-        if (data.mainMatch) {
-          selectedCard = data.mainCard;
-        } else if (data.matchedOtherCard) {
-          selectedCard = data.matchedOtherCard;
-        } else if (data.matchedSliderCard) {
-          selectedCard = data.matchedSliderCard;
+
+        if (data.fromNews?.mainMatch) {
+          selectedCard = data.fromNews.mainCard;
+        } else if (data.fromNews?.matchedOtherCard) {
+          selectedCard = data.fromNews.matchedOtherCard;
+        } else if (data.fromNews?.matchedSliderCard) {
+          selectedCard = data.fromNews.matchedSliderCard;
+        } else if (data.fromSliderHero?.matchedMainCard) {
+          selectedCard = data.fromSliderHero.matchedMainCard;
+        } else if (data.fromSliderHero?.matchedSideCard) {
+          selectedCard = data.fromSliderHero.matchedSideCard;
+        } else if (data.fromImportantNews?.length > 0) {
+          selectedCard = data.fromImportantNews[0];
         }
-  
+
         if (!selectedCard) {
           router.push("/404");
           return;
         }
-  
+
         setNewsDetails(selectedCard);
       } catch (error) {
         console.error("Error:", error);
@@ -60,10 +74,9 @@ const ServiceDetails = () => {
         setLoading(false);
       }
     };
-  
+
     fetchData();
   }, [newsid]);
-  
 
   if (loading) return <LoadingPage />;
   // if (
@@ -82,14 +95,9 @@ const ServiceDetails = () => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <main>
-            <BreadcrumbEight
-              title={newsDetails?.image?.text?.[locale]}
-              
-            />
+            <BreadcrumbEight title={newsDetails?.title?.[locale]} />
             <ThumbArea img={newsDetails?.image} />
-            <ProjectDetailsArea
-              desc={newsDetails?.description?.[locale]}
-            />
+            <ProjectDetailsArea desc={newsDetails?.description?.[locale]} />
             {/* <ProjectArea /> */}
             {/* <TestimonialArea /> */}
           </main>
@@ -97,7 +105,6 @@ const ServiceDetails = () => {
         </div>
       </div>
     </>
-  
   );
 };
 

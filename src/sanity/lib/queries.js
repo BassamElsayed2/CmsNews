@@ -36,6 +36,10 @@ export const categoryFetch = `*[_type == "category"]`;
 
 export const adsFetch = `*[_type == "adsSection"][0]`;
 
+export const sliderFetch = `*[_type == "sliderHero"][0]`;
+
+export const importantNewsFetch = `*[_type == "importantNews"][0]`;
+
 export const newsFetchWithSearchAndFilter = (
   searchTerm = "",
   categoryId = ""

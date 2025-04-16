@@ -1256,28 +1256,38 @@
 }
 
 // slider
+
+.sliderContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
 .sliderWrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 1;
+  width: 65%;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
 }
 
 .slideCard {
   display: flex !important;
-  flex-direction: row-reverse; // الصورة على اليمين
-  margin-right: 45px;
+  flex-direction: row-reverse;
+  align-items: center;
   border-radius: 10px;
   overflow: hidden;
-  align-items: center;
   padding: 1.5rem;
   height: 350px;
 
   img {
     width: 40%;
-    object-fit: cover;
     height: 100%;
+    object-fit: cover;
     border-radius: 10px;
   }
 
@@ -1285,6 +1295,7 @@
     flex: 1;
     padding: 1rem;
     text-align: end;
+
     h3 {
       font-size: 1.8rem;
       margin-bottom: 1rem;
@@ -1295,6 +1306,46 @@
       font-size: 1.1rem;
       color: #333;
       line-height: 1.6;
+    }
+  }
+}
+
+.sideCards {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  z-index: 100;
+
+  @media (max-width: 1024px) {
+    display: none;
+  }
+}
+
+.sideCard {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  img {
+    width: 180px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  .content {
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      color: #1a237e;
+    }
+
+    p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.4;
     }
   }
 }
@@ -1345,13 +1396,18 @@
 
 .categorySections {
   flex: 1;
-}
-
-.advertisements {
-  width: 30%;
+  width: 75%;
 
   @media (max-width: 768px) {
     width: 100%;
+  }
+}
+
+.advertisements {
+  width: 25%;
+
+  @media (max-width: 768px) {
+    width: 50%;
   }
 }
 
@@ -1393,7 +1449,6 @@
 
 .adImage {
   width: 100%;
-  object-fit: cover;
   height: 100%;
   border-radius: 10px;
 

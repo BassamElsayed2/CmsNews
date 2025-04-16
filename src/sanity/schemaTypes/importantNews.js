@@ -1,6 +1,6 @@
 export default {
-  name: "heroSlider",
-  title: "heroSlider",
+  name: "importantNews",
+  title: "Important News",
   type: "document",
   fields: [
     {
@@ -40,9 +40,9 @@ export default {
               title: "Slug",
               type: "slug",
               options: {
-                source: (doc, { parent }) => parent?.title?.en || "news-main",
+                source: (doc, { parent }) => parent?.title.en || "blog-details",
                 slugify: (input) => {
-                  const randomNum = Math.floor(1000 + Math.random() * 9000);
+                  const randomNum = Math.floor(1000 + Math.random() * 9000); // رقم بين 1000 و 9999
                   return `${input
                     .toLowerCase()
                     .replace(/\s+/g, "-")
@@ -62,6 +62,8 @@ export default {
           ],
         },
       ],
+      validation: (Rule) =>
+        Rule.max(6).error("الحد الأقصى لعدد الإعلانات هو 4 فقط"),
     },
   ],
 };

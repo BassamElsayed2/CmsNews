@@ -1167,8 +1167,6 @@
 }
 
 .investigations-section {
-  
-
   .section-header {
     display: flex;
     justify-content: space-around;
@@ -1188,7 +1186,6 @@
       text-decoration: none;
     }
   }
-
 
   .main-card {
     display: flex;
@@ -1274,7 +1271,6 @@
     }
 
     .section-header {
-      flex-direction: column;
       align-items: flex-start;
       gap: 0.5rem;
     }
@@ -1285,14 +1281,11 @@
   display: flex;
   gap: 2rem;
   align-items: flex-start;
-
 }
 .cards-column {
   flex: 1;
   z-index: 100;
 }
-
-
 
 .slider-column {
   width: 300px;
@@ -1307,7 +1300,6 @@
   @media (max-width: 1200px) {
     height: 920px;
   }
-
 
   .slick-slider,
   .slick-list,
@@ -1347,7 +1339,6 @@
   }
 }
 
-
 @mixin line-clamp($lines) {
   display: -webkit-box;
   -webkit-line-clamp: $lines;
@@ -1356,20 +1347,38 @@
 }
 .main-content {
   h3 {
-    @include line-clamp(1); // العنوان في سطر واحد
+    @include line-clamp(1);
   }
 
   p {
-    @include line-clamp(2); // الفقرة في سطرين
+    @include line-clamp(2);
   }
 }
 .slider-column {
   h4 {
-    @include line-clamp(1); // العنوان في سطر واحد
+    @include line-clamp(1);
   }
 
   p {
-    @include line-clamp(2); // الفقرة في سطرين
+    @include line-clamp(2);
   }
 }
 
+.mainContent {
+  h3 {
+    @include line-clamp(2);
+  }
+
+  p {
+    @include line-clamp(4);
+  }
+}
+.sideCards .sideCard .content {
+  h3 {
+    @include line-clamp(1);
+  }
+
+  p {
+    @include line-clamp(3);
+  }
+}

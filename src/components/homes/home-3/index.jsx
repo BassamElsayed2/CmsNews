@@ -14,7 +14,6 @@ import { categoryFetch } from "@/src/sanity/lib/queries";
 import { client } from "@/src/sanity/lib/client";
 
 const HomeThree = () => {
-
   const [categoryData, setcategoryData] = useState(null);
 
   const { locale } = useRouter();
@@ -29,27 +28,33 @@ const HomeThree = () => {
     fetchData();
   }, []);
 
-
   return (
-    <>
+    <div className="homeBox">
       <HeaderThree />
       <HeroSlider />
       <NewsArea />
       <div className="midContainer">
         <div className="categorySections">
-            {categoryData?.map((category, i) => (
-                category?.appear && <CategoryNews key={i} category={category?.slug.current} title={category.title?.[locale]}/>
-            ))}
+          {categoryData?.map(
+            (category, i) =>
+              category?.appear && (
+                <CategoryNews
+                  key={i}
+                  category={category?.slug.current}
+                  title={category.title?.[locale]}
+                />
+              )
+          )}
         </div>
         <div className="advertisements">
-          <AdvertismentsSection/>
+          <AdvertismentsSection />
         </div>
       </div>
 
       <GalleryArea />
       <BlogArea />
       <FooterThree />
-    </>
+    </div>
   );
 };
 

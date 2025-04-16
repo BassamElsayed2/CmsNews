@@ -111,21 +111,21 @@ function InvestigationsSection() {
         <div className="cards-column">
           {/* Main card */}
           <div className="main-card">
-            <Link
-              className="main-content"
-              href={`${locale}/news/${newsData?.mainCard?.slug?.current}`}
-            >
-              <h3>{newsData?.mainCard?.title?.[locale]}</h3>
-              <p>{newsData?.mainCard?.description?.[locale]}</p>
-            </Link>
-            <img
-              src={
-                newsData?.mainCard?.image?.asset?._ref
-                  ? urlFor(newsData?.mainCard?.image).url()
-                  : ""
-              }
-              alt="theme-pure"
-            />
+            {newsData?.otherCards.slice(-1).map((item) => (
+              <React.Fragment key={item.slug?.current}>
+                <Link
+                  className="main-content"
+                  href={`${locale}/news/${item.slug?.current}`}
+                >
+                  <h3>{item.title?.[locale]}</h3>
+                  <p>{item.description?.[locale]}</p>
+                </Link>
+                <img
+                  src={item.image?.asset?._ref ? urlFor(item.image).url() : ""}
+                  alt="theme-pure"
+                />
+              </React.Fragment>
+            ))}
           </div>
 
           {/* Filtered smaller cards */}

@@ -44,12 +44,8 @@ function BlogDetails() {
       }
     };
 
-    
-
     fetchData();
   }, [id]);
-
-  console.log(blogDetails)
 
   useEffect(() => {
     if (!loading && !blogDetails) {
