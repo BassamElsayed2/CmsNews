@@ -57,7 +57,7 @@ function InvestigationsSection() {
           marginTop: "1rem",
           alignItems: "center",
           position: "relative",
-          zIndex: 100,
+          zIndex: 2,
           justifyContent: "center",
           marginBottom: "50px",
         }}
@@ -80,7 +80,7 @@ function InvestigationsSection() {
           </svg>
           <input
             type="text"
-            placeholder="ابحث عن تحقيق..."
+            placeholder="ابحث عن ..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="input"
@@ -94,7 +94,9 @@ function InvestigationsSection() {
             onChange={(e) => setSelectedCategory(e.target.value)}
             className="custom-select"
           >
-            <option value="">كل الفئات</option>
+            <option value="">
+              {locale === "en" ? "All Categories" : "كل الفئات"}
+            </option>
             {categories.map((cat) => (
               <option key={cat._id} value={cat._id}>
                 {cat.title?.[locale] || cat.title?.en || "Unnamed"}

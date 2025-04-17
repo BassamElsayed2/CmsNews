@@ -254,7 +254,7 @@
     left: 0px;
     width: 120px;
     background: var(--tp-common-white);
-    z-index: 9;
+    z-index: 101;
     box-shadow: 0 30px 70px 6px rgba(11, 6, 70, 0.08);
     padding: 15px 20px;
     border-radius: 4px;
@@ -335,6 +335,7 @@
         }
         & li {
           display: inline-block;
+          position: relative;
           margin: 0px 17px;
           @media #{$lg} {
             margin: 0px 12px;
@@ -1094,7 +1095,7 @@
 .searchHeader {
   position: absolute;
   top: 146px;
-  z-index: 100;
+  z-index: 2;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -1239,4 +1240,25 @@
 .homeBox {
   max-width: 1800px;
   margin: 0 auto;
+}
+.logoSlider {
+  max-width: 50px;
+}
+
+.moreLinks {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 14px;
+  letter-spacing: 0.02em;
+  font-family: var(--tp-ff-urban);
+  color: var(--tp-common-black);
+  margin: 0px 7px;
+}
+
+.tpoffcanvas__logo {
+  width: 100px;
+  margin: 0 auto;
+}
+.header-bottom__logo {
+  width: 100px;
 }

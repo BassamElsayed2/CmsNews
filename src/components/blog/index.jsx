@@ -15,9 +15,9 @@ const Blog = () => {
       <HeaderSix />
       <main>
         <BreadcrumbTwo
-          title={locale === "en" ? "Read our blogs" : "اقرأ مدوناتنا"}
+          title={locale === "en" ? "Watch our Videos" : " شاهد فديوهاتنا"}
           innertitle={
-            locale === "en" ? "Blog Grid Classic" : "شبكة المدونات الكلاسيكية"
+            locale === "en" ? "videos Grid Classic" : "شبكة الفديوهات المتداولة"
           }
         />
         {/* <BlogGrid /> */}
