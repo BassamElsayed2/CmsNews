@@ -28,9 +28,10 @@ export default {
       ],
     },
     {
-      name: "phone",
-      title: "Phone Number",
-      type: "string",
+      name: "phones",
+      title: "Phone Numbers",
+      type: "array",
+      of: [{ type: "string" }],
     },
     {
       name: "email",

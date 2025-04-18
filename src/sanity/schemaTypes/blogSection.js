@@ -28,6 +28,7 @@ export default {
           validation: (Rule) => Rule.required(),
         },
       ],
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "posts",
@@ -39,81 +40,110 @@ export default {
           fields: [
             {
               name: "img",
-              title: "Blog Image",
+              title: "صورة",
               type: "image",
               options: { hotspot: true },
               validation: (Rule) => Rule.required(),
             },
             {
               name: "category",
-              title: "Category",
+              title: "التصنيف",
               type: "object",
               fields: [
                 {
                   name: "en",
-                  title: "English",
+                  title: "التصنيف بالانجليزية",
                   type: "string",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(30)
+                      .error("يجب الا يزيد عن 30 حرف"),
                 },
                 {
                   name: "ar",
-                  title: "Arabic",
+                  title: "التصنيف بالعربية",
                   type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(30)
+                      .error("يجب الا يزيد عن 30 حرف"),
                 },
               ],
             },
             {
               name: "date",
-              title: "Publication Date",
+              title: "تاريخ النشر",
               type: "date",
               validation: (Rule) => Rule.required(),
             },
             {
               name: "title",
-              title: "Title",
+              title: "العنوان",
               type: "object",
               fields: [
                 {
                   name: "en",
-                  title: "English",
+                  title: "العنوان بالانجليزية",
+
                   type: "string",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(20)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 20 حرفًا"),
                 },
                 {
                   name: "ar",
-                  title: "Arabic",
+                  title: "العنوان بالعربية",
                   type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(20)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 20 حرفًا"),
                 },
               ],
+              validation: (Rule) => Rule.required(),
             },
             {
               name: "author_img",
-              title: "Author Image",
+              title: "صورة الناشر",
               type: "image",
               options: { hotspot: true },
               validation: (Rule) => Rule.required(),
             },
             {
               name: "author_name",
-              title: "Author Name",
+              title: "اسم الناشر",
               type: "object",
               fields: [
                 {
                   name: "en",
-                  title: "English",
+                  title: "الاسم بالانجليزية",
                   type: "string",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(30)
+                      .error("يجب الا يزيد عن 30 حرف"),
                 },
                 {
                   name: "ar",
-                  title: "Arabic",
+                  title: "الاسم بالعربية",
                   type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(30)
+                      .error("يجب الا يزيد عن 30 حرف"),
                 },
               ],
             },
             {
               name: "job_title",
-              title: "Job Title",
+              title: "الوظيفة",
               type: "object",
               fields: [
                 {
@@ -126,8 +156,10 @@ export default {
                   name: "ar",
                   title: "Arabic",
                   type: "string",
+                  validation: (Rule) => Rule.required(),
                 },
               ],
+              validation: (Rule) => Rule.required(),
             },
             {
               name: "slug",
@@ -156,7 +188,7 @@ export default {
             },
             {
               name: "articalText",
-              title: "Artical Info",
+              title: "تفاصيل المنشور",
               type: "array",
               of: [
                 {
@@ -164,17 +196,18 @@ export default {
                   fields: [
                     {
                       name: "en",
-                      title: "English",
+                      title: "التفاصيل بالانجليزية",
                       type: "text",
                       validation: (Rule) => Rule.required(),
                     },
                     {
                       name: "ar",
-                      title: "Arabic",
+                      title: "التفاصيل بالعربية",
                       type: "text",
                       validation: (Rule) => Rule.required(),
                     },
                   ],
+                  validation: (Rule) => Rule.required(),
                 },
               ],
               validation: (Rule) =>
@@ -182,8 +215,9 @@ export default {
             },
             {
               name: "vdieoCode",
-              title: "vdieo Code",
+              title: "كود الفيديو",
               type: "string",
+              validation: (Rule) => Rule.required(),
             },
           ],
         },

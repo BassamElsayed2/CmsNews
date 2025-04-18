@@ -162,6 +162,8 @@ const FooterThree = () => {
     fetchData();
   }, []);
 
+  console.log(footerData);
+
   return (
     <>
       <div
@@ -241,15 +243,17 @@ const FooterThree = () => {
                       <div className="tp-footer__contact-info">
                         <p>{footerData?.description?.[locale]}</p>
                         <ul>
-                          <li>
+                          <li className="phones">
                             <span>
                               <PhoneTwo />
                             </span>
                             <Link
-                              className="first-child"
+                              className="first-child "
                               href={`tel:${footerData?.phone}`}
                             >
-                              {footerData?.phone}
+                              {footerData?.phones.map((item) => (
+                                <p>{item}</p>
+                              ))}
                             </Link>
                           </li>
                           <li>

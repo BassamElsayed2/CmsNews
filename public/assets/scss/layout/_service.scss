@@ -1382,3 +1382,22 @@
     @include line-clamp(3);
   }
 }
+
+.clamped-text {
+  h3 {
+    @include line-clamp(1);
+  }
+
+  p {
+    @include line-clamp(3);
+  }
+}
+
+.tp-blog-title-box a,
+.rc__post-title a {
+  @include line-clamp(2);
+}
+
+.rc__post-content {
+  margin-right: 10px;
+}

@@ -12,24 +12,6 @@ import { client } from "../sanity/lib/client";
 import { urlFor } from "../sanity/lib/image";
 import Link from "next/link";
 
-const slides = [
-  {
-    image: "/assets/img/vedio/vedio-img.png",
-    title: "مرحبًا بك في موقعنا",
-    description: "نحن نقدم أفضل الحلول لتطوير أعمالك.",
-  },
-  {
-    image: "/assets/img/vedio/vedio-img.png",
-    title: "اكتشف خدماتنا",
-    description: "خدمات احترافية في تصميم وتطوير المواقع.",
-  },
-  {
-    image: "/assets/img/vedio/vedio-img.png",
-    title: "ابدأ اليوم",
-    description: "انطلق في رحلتك الرقمية معنا.",
-  },
-];
-
 const NextArrow = ({ onClick }) => (
   <div className={`arrow next`} onClick={onClick}>
     <FaArrowRight />

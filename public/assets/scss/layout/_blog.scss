@@ -12,6 +12,8 @@
       border-radius: 30px;
       width: 100%;
       transition: transform 1.5s ease;
+      height: 220px;
+      object-fit: cover;
     }
     &:hover {
       & img {
@@ -838,7 +840,8 @@
     border-radius: 20px 20px 0 0;
     & img {
       border-radius: 20px 20px 0 0;
-      height: auto;
+      height: 190px;
+      object-fit: cover;
     }
   }
   & .tp-blog-title-box {
@@ -1612,4 +1615,14 @@
 
 .tp-blog-author-info-box {
   padding: 10px;
+}
+.tp-blog-avata img {
+  margin-left: 10px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }

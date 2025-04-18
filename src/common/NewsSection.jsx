@@ -26,7 +26,7 @@ function NewsArea() {
   const sliderSettings = {
     vertical: true,
     autoplay: true,
-    autoplaySpeed: 6000,
+    autoplaySpeed: 3000,
     arrows: false,
     infinite: true,
   };

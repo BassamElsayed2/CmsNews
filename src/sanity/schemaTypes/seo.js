@@ -5,27 +5,30 @@ export default {
   fields: [
     {
       name: "pageTitle",
-      title: "Page Title",
+      title: "عنوان الصفحة",
       type: "object",
       fields: [
         {
           name: "en",
-          title: "English",
+          title: "العنوان بالإنجليزية",
           type: "string",
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) =>
+            Rule.required()
+              .min(1)
+              .max(15)
+              .error("يجب أن يكون العنوان بين 1 و 15 حرفًا"),
         },
         {
           name: "ar",
-          title: "Arabic",
+          title: "العنوان بالعربية",
           type: "string",
-          validation: (Rule) => Rule.required(),
+          validation: (Rule) =>
+            Rule.required()
+              .min(1)
+              .max(15)
+              .error("يجب أن يكون العنوان بين 1 و 15 حرفًا"),
         },
       ],
-    },
-    {
-      name: "favicon",
-      title: "Favicon",
-      type: "string",
     },
   ],
 };

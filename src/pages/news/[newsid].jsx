@@ -9,6 +9,7 @@ import ServiceDetailsArea from "@/src/components/service-details/service-details
 import FooterFive from "@/src/layout/footers/footer-5";
 import HeaderSix from "@/src/layout/headers/header-6";
 import { client } from "@/src/sanity/lib/client";
+import { marked } from "marked";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -79,14 +80,8 @@ const ServiceDetails = () => {
   }, [newsid]);
 
   if (loading) return <LoadingPage />;
-  // if (
-  //   !newsDetails ||
-  //   !newsDetails.featureCards ||
-  //   newsDetails.featureCards.length === 0
-  // ) {
-  //   router.replace("/404");
-  //   return;
-  // }
+
+  console.log(newsDetails); // Add this line to log the newsDetails t
 
   return (
     <>
@@ -98,6 +93,15 @@ const ServiceDetails = () => {
             <BreadcrumbEight title={newsDetails?.title?.[locale]} />
             <ThumbArea img={newsDetails?.image} />
             <ProjectDetailsArea desc={newsDetails?.description?.[locale]} />
+            {newsDetails?.details?.[locale] && (
+              <article
+                className="container pr-170"
+                dangerouslySetInnerHTML={{
+                  __html: marked(newsDetails.details[locale]), // حول markdown إلى HTML
+                }}
+              />
+            )}
+
             {/* <ProjectArea /> */}
             {/* <TestimonialArea /> */}
           </main>

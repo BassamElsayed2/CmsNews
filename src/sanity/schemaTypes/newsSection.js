@@ -6,7 +6,7 @@ export default {
     // ===== Other Cards =====
     {
       name: "otherCards",
-      title: "News Cards",
+      title: "الاخبار",
       type: "array",
       of: [
         {
@@ -14,28 +14,37 @@ export default {
           fields: [
             {
               name: "image",
-              title: "Image",
+              title: "الصوره",
               type: "image",
               validation: (Rule) => Rule.required(),
             },
             {
               name: "title",
-              title: "Title",
+              title: "العنوان",
               type: "object",
               fields: [
                 {
                   name: "en",
-                  title: "English",
+                  title: "العنوان بالانجليزية",
                   type: "string",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(20)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 20 حرفًا"),
                 },
                 {
                   name: "ar",
-                  title: "Arabic",
+                  title: "العنوان بالعربية",
                   type: "string",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(20)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 20 حرفًا"),
                 },
               ],
+              validation: (Rule) => Rule.required(),
             },
             {
               name: "slug",
@@ -64,26 +73,36 @@ export default {
 
             {
               name: "description",
-              title: "Description",
+              title: "الوصف",
               type: "object",
               fields: [
                 {
                   name: "en",
-                  title: "English",
+                  title: "الوصف بالانجليزية",
                   type: "text",
                   validation: (Rule) => Rule.required(),
                 },
                 {
                   name: "ar",
-                  title: "Arabic",
+                  title: "الوصف بالعربية",
                   type: "text",
                   validation: (Rule) => Rule.required(),
                 },
               ],
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "details",
+              title: "التفاصيل",
+              type: "object",
+              fields: [
+                { name: "ar", title: "عربي", type: "markdown" },
+                { name: "en", title: "إنجليزي", type: "markdown" },
+              ],
             },
             {
               name: "category",
-              title: "Category",
+              title: "التصنيف",
               type: "reference",
               to: [{ type: "category" }],
               validation: (Rule) => Rule.required(),
@@ -106,28 +125,37 @@ export default {
           fields: [
             {
               name: "image",
-              title: "Image",
+              title: "الصوره",
               type: "image",
               validation: (Rule) => Rule.required(),
             },
             {
               name: "title",
-              title: "Title",
+              title: "العنوان",
               type: "object",
               fields: [
                 {
                   name: "en",
-                  title: "English",
+                  title: "العنوان بالانجليزية",
                   type: "string",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(20)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 20 حرفًا"),
                 },
                 {
                   name: "ar",
-                  title: "Arabic",
+                  title: "العنوان بالعربية",
                   type: "string",
-                  validation: (Rule) => Rule.required(),
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(20)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 20 حرفًا"),
                 },
               ],
+              validation: (Rule) => Rule.required(),
             },
             {
               name: "slug",
@@ -155,26 +183,36 @@ export default {
             },
             {
               name: "description",
-              title: "Description",
+              title: "الوصف",
               type: "object",
               fields: [
                 {
                   name: "en",
-                  title: "English",
+                  title: "الوصف بالانجليزية",
                   type: "text",
                   validation: (Rule) => Rule.required(),
                 },
                 {
                   name: "ar",
-                  title: "Arabic",
+                  title: "الوصف بالعربية",
                   type: "text",
                   validation: (Rule) => Rule.required(),
                 },
               ],
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "details",
+              title: "التفاصيل",
+              type: "object",
+              fields: [
+                { name: "ar", title: "عربي", type: "markdown" },
+                { name: "en", title: "إنجليزي", type: "markdown" },
+              ],
             },
             {
               name: "category",
-              title: "Category",
+              title: "التصنيف",
               type: "reference",
               to: [{ type: "category" }],
               validation: (Rule) => Rule.required(),

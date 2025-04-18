@@ -13,27 +13,58 @@ export default {
           fields: [
             {
               name: "image",
-              title: "Image",
+              title: "الصورة",
               type: "image",
               options: { hotspot: true },
+              validation: (Rule) => Rule.required(),
             },
             {
               name: "title",
-              title: "Title",
+              title: "العنوان",
               type: "object",
               fields: [
-                { name: "ar", title: "عربي", type: "string" },
-                { name: "en", title: "إنجليزي", type: "string" },
+                {
+                  name: "ar",
+                  title: "عربي",
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(20)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 20 حرفًا"),
+                },
+                {
+                  name: "en",
+                  title: "إنجليزي",
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(20)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 20 حرفًا"),
+                },
               ],
+              validation: (Rule) => Rule.required(),
             },
             {
               name: "description",
-              title: "Description",
+              title: "الوصف",
               type: "object",
               fields: [
                 { name: "ar", title: "عربي", type: "text" },
                 { name: "en", title: "إنجليزي", type: "text" },
               ],
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "details",
+              title: "التفاصيل",
+              type: "object",
+              fields: [
+                { name: "ar", title: "عربي", type: "markdown" },
+                { name: "en", title: "إنجليزي", type: "markdown" },
+              ],
+              validation: (Rule) => Rule.required(),
             },
             {
               name: "slug",
@@ -75,27 +106,57 @@ export default {
           fields: [
             {
               name: "image",
-              title: "Image",
+              title: "صورة",
               type: "image",
               options: { hotspot: true },
             },
             {
               name: "title",
-              title: "Title",
+              title: "العنوان",
               type: "object",
               fields: [
-                { name: "ar", title: "عربي", type: "string" },
-                { name: "en", title: "إنجليزي", type: "string" },
+                {
+                  name: "ar",
+                  title: "عربي",
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(20)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 20 حرفًا"),
+                },
+                {
+                  name: "en",
+                  title: "إنجليزي",
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(20)
+                      .max(100)
+                      .error("يجب أن يكون العنوان بين 100 و 20 حرفًا"),
+                },
               ],
+              validation: (Rule) => Rule.required(),
             },
             {
               name: "description",
-              title: "Description",
+              title: "الوصف",
               type: "object",
               fields: [
                 { name: "ar", title: "عربي", type: "text" },
                 { name: "en", title: "إنجليزي", type: "text" },
               ],
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "details",
+              title: "التفاصيل",
+              type: "object",
+              fields: [
+                { name: "ar", title: "عربي", type: "markdown" },
+                { name: "en", title: "إنجليزي", type: "markdown" },
+              ],
+              validation: (Rule) => Rule.required(),
             },
             {
               name: "slug",
@@ -126,7 +187,7 @@ export default {
         },
       ],
       validation: (Rule) =>
-        Rule.max(3).error("الحد الأقصى لعدد الكروت هو 3 فقط"),
+        Rule.required().max(3).error("الحد الأقصى لعدد الكروت هو 3 فقط"),
     },
   ],
 };

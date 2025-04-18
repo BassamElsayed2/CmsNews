@@ -5,19 +5,21 @@ export default {
   fields: [
     {
       name: "blacklogo",
-      title: "Black Logo",
+      title: "اللوجو الأسود",
       type: "image",
       options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "whitelogo",
-      title: "white Logo",
+      title: "اللوجو الأبيض",
       type: "image",
       options: { hotspot: true },
+      validation: (Rule) => Rule.required(),
     },
     {
       name: "links",
-      title: "Menu Links",
+      title: "روابط القائمة",
       type: "array",
       of: [
         {
@@ -25,18 +27,18 @@ export default {
           fields: [
             {
               name: "title",
-              title: "Title",
+              title: "العنوان",
               type: "object",
               fields: [
                 {
                   name: "en",
-                  title: "English",
+                  title: "العنوان بالإنجليزية",
                   type: "string",
                   validation: (Rule) => Rule.required(),
                 },
                 {
                   name: "ar",
-                  title: "Arabic",
+                  title: "العنوم بالعربية",
                   type: "string",
                   validation: (Rule) => Rule.required(),
                 },
@@ -52,6 +54,7 @@ export default {
                 ),
             },
           ],
+          validation: (Rule) => Rule.required(),
         },
       ],
     },

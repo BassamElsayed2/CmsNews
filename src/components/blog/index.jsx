@@ -22,7 +22,7 @@ const Blog = () => {
         />
         {/* <BlogGrid /> */}
         <Portfolio />
-        <CtaArea />
+        {/* <CtaArea /> */}
       </main>
       <FooterFive style_contact={true} style_team={true} />
     </>
