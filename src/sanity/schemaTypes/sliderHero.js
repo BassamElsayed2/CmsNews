@@ -19,6 +19,19 @@ export default {
               validation: (Rule) => Rule.required(),
             },
             {
+              name: "otherImages",
+              title: " صور أخرى",
+              type: "array",
+              of: [
+                {
+                  type: "image",
+                  options: {
+                    hotspot: true,
+                  },
+                },
+              ],
+            },
+            {
               name: "title",
               title: "العنوان",
               type: "object",
@@ -109,6 +122,19 @@ export default {
               title: "صورة",
               type: "image",
               options: { hotspot: true },
+            },
+            {
+              name: "otherImages",
+              title: " صور أخرى",
+              type: "array",
+              of: [
+                {
+                  type: "image",
+                  options: {
+                    hotspot: true,
+                  },
+                },
+              ],
             },
             {
               name: "title",

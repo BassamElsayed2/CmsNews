@@ -9,6 +9,7 @@ import ServiceDetailsArea from "@/src/components/service-details/service-details
 import FooterFive from "@/src/layout/footers/footer-5";
 import HeaderSix from "@/src/layout/headers/header-6";
 import { client } from "@/src/sanity/lib/client";
+import { urlFor } from "@/src/sanity/lib/image";
 import { marked } from "marked";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/router";
@@ -81,7 +82,7 @@ const ServiceDetails = () => {
 
   if (loading) return <LoadingPage />;
 
-  console.log(newsDetails); // Add this line to log the newsDetails t
+  console.log(newsDetails);
 
   return (
     <>
@@ -92,15 +93,29 @@ const ServiceDetails = () => {
           <main>
             <BreadcrumbEight title={newsDetails?.title?.[locale]} />
             <ThumbArea img={newsDetails?.image} />
-            <ProjectDetailsArea desc={newsDetails?.description?.[locale]} />
-            {newsDetails?.details?.[locale] && (
-              <article
-                className="container pr-170"
-                dangerouslySetInnerHTML={{
-                  __html: marked(newsDetails.details[locale]), // حول markdown إلى HTML
-                }}
-              />
-            )}
+            <div className="newsWrapper">
+              <div>
+                <ProjectDetailsArea desc={newsDetails?.description?.[locale]} />
+                {newsDetails?.details?.[locale] && (
+                  <article
+                    className="container pr-170"
+                    dangerouslySetInnerHTML={{
+                      __html: marked(newsDetails.details[locale]), // حول markdown إلى HTML
+                    }}
+                  />
+                )}
+              </div>
+              <div className="newsImages">
+                {newsDetails?.otherImages?.map((img, i) => {
+                  return (
+                    <img
+                      src={img?.asset?._ref ? urlFor(img).url() : ""}
+                      alt="theme-pure"
+                    />
+                  );
+                })}
+              </div>
+            </div>
 
             {/* <ProjectArea /> */}
             {/* <TestimonialArea /> */}
