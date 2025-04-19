@@ -7,12 +7,12 @@ import { FaHome } from "react-icons/fa";
 const NavMenu = ({ links }) => {
   const { locale } = useRouter();
 
-  const visibleLinks = links?.slice(0, 4);
-  const remainingLinks = links?.slice(4);
+  const visibleLinks = links?.slice(0, 10);
+  const remainingLinks = links?.slice(10);
 
   return (
-    <ul>
-      {visibleLinks?.map((menu_item, i) => (
+    <ul className="d-flex ">
+      {links?.map((menu_item, i) => (
         <li key={i}>
           <Link href={`${locale}${menu_item.url}`}>
             {menu_item.title?.[locale]}

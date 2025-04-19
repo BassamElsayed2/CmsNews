@@ -13,8 +13,6 @@ const categories = [
   ...new Set(portfolio_data.map((item) => item.category)),
 ];
 const Portfolio = () => {
-  const [items, setItems] = useState(portfolio_data);
-
   const { locale } = useRouter();
 
   const [galleryData, setGalleryData] = useState(null);

@@ -42,7 +42,7 @@ const HeroSlider = () => {
   const settings = {
     dots: false,
     infinite: true,
-    autoplay: false,
+    autoplay: true,
     speed: 800,
     autoplaySpeed: 8000,
     slidesToShow: 1,

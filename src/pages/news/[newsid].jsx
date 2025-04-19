@@ -111,6 +111,7 @@ const ServiceDetails = () => {
                     <img
                       src={img?.asset?._ref ? urlFor(img).url() : ""}
                       alt="theme-pure"
+                      key={i}
                     />
                   );
                 })}

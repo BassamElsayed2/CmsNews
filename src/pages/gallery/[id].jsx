@@ -8,6 +8,7 @@ import ThumbArea from "@/src/components/project-details/thumb-area";
 import FooterFive from "@/src/layout/footers/footer-5";
 import HeaderSix from "@/src/layout/headers/header-6";
 import { client } from "@/src/sanity/lib/client";
+import { urlFor } from "@/src/sanity/lib/image";
 import { useLocale } from "next-intl";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
@@ -52,6 +53,8 @@ function GalleryDetails() {
     return;
   }
 
+  console.log(galleryDetails);
+
   return (
     <>
       <SEO />
@@ -64,9 +67,24 @@ function GalleryDetails() {
               sub_title={galleryDetails?.image?.subTitle?.[locale]}
             />
             <ThumbArea img={galleryDetails?.image?.image} />
-            <ProjectDetailsArea
-              desc={galleryDetails?.image?.description?.[locale]}
-            />
+            <div className="galleryWrapper">
+              <div className="newsImages">
+                {galleryDetails?.image.otherImages?.map((img, i) => {
+                  return (
+                    <img
+                      src={img?.asset?._ref ? urlFor(img).url() : ""}
+                      alt="theme-pure"
+                      key={i}
+                    />
+                  );
+                })}
+              </div>
+              <div>
+                <ProjectDetailsArea
+                  desc={galleryDetails?.image?.description?.[locale]}
+                />
+              </div>
+            </div>
             {/* <ProjectArea /> */}
             <TestimonialArea />
           </main>

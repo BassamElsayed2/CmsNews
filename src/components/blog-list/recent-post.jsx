@@ -52,11 +52,13 @@ const RecentPost = () => {
     <>
       <div className="sidebar__widget mb-40">
         <div className="sidebar__widge-title-box">
-          <h3 className="sidebar__widget-title">Recent Post</h3>
+          <h3 className="sidebar__widget-title">
+            {locale === "en" ? "Recent Post" : "آخر المشاركات"}
+          </h3>
         </div>
         <div className="sidebar__widget-content">
           <div className="sidebar__post rc__post">
-            {blogData?.posts.slice(0, 3).map((item, i) => (
+            {blogData?.posts.slice(-3).map((item, i) => (
               <div key={i} className="rc__post mb-20 d-flex">
                 <div className="rc__post-thumb mr-20">
                   <Link href={`/${locale}/blog/${item?.slug.current}`}>

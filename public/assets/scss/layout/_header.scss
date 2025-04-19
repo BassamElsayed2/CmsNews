@@ -281,7 +281,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 52px;
+    top: 75px;
   }
   &__plr-4 {
     padding: 0px 315px;
@@ -447,7 +447,7 @@
           }
           & a {
             font-weight: 500;
-            font-size: 16px;
+            font-size: 14px;
             line-height: 14px;
             letter-spacing: 0.02em;
             font-family: var(--tp-ff-urban);
@@ -910,7 +910,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
 }
 .date-icon {
@@ -925,6 +925,7 @@
   display: flex;
   align-items: flex-end;
   justify-content: center;
+  margin-left: 20px;
 
   span {
     line-height: 1.4;
@@ -1242,7 +1243,7 @@
   margin: 0 auto;
 }
 .logoSlider {
-  max-width: 50px;
+  max-width: 80px;
 }
 
 .moreLinks {
@@ -1261,4 +1262,8 @@
 }
 .header-bottom__logo {
   width: 100px;
+}
+
+.header_top {
+  top: 0 !important;
 }

@@ -49,20 +49,15 @@ const HeaderThree = () => {
         >
           <div className="container">
             <div className="row align-items-center">
-              <div className="col-xxl-8 col-xl-8 col-lg-8 d-none d-lg-block">
+              <div className="col-xxl-10 col-xl-10 col-lg-10 d-none d-lg-block">
                 <div className="header-bottom__main-menu header-bottom__main-menu-3">
                   <nav id="mobile-menu">
                     <NavMenu links={navData?.links} />
                   </nav>
                 </div>
               </div>
-              <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-8 col-6">
+              <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-8 col-6">
                 <div className="header-bottom__right d-flex align-items-center justify-content-end">
-                  {/* <div className="header-bottom__action">
-                              <Link className="d-none d-lg-inline-block header-bottom__action-2 border-none" href="/register">
-                                 <span>Log In</span>
-                              </Link>
-                           </div> */}
                   <div className="header-bottom__btn d-flex align-items-center">
                     <a
                       className="header-bottom__bar tp-menu-bar d-lg-none mr-20"

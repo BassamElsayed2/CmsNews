@@ -20,6 +20,15 @@ export default {
       ],
     },
     {
+      name: "desc",
+      title: "وصف",
+      type: "object",
+      fields: [
+        { name: "en", title: "English", type: "string" },
+        { name: "ar", title: "Arabic", type: "string" },
+      ],
+    },
+    {
       name: "button",
       title: "Button",
       type: "object",
@@ -29,8 +38,20 @@ export default {
           title: "Text",
           type: "object",
           fields: [
-            { name: "en", title: "English", type: "string" },
-            { name: "ar", title: "Arabic", type: "string" },
+            {
+              name: "en",
+              title: "English",
+              type: "string",
+              validation: (Rule) =>
+                Rule.required().min(1).max(50).error("يجب الا يزيد عن 50 حرف"),
+            },
+            {
+              name: "ar",
+              title: "Arabic",
+              type: "string",
+              validation: (Rule) =>
+                Rule.required().min(1).max(50).error("يجب الا يزيد عن 50 حرف"),
+            },
           ],
         },
         { name: "url", title: "URL", type: "string" },
@@ -49,6 +70,19 @@ export default {
               title: "صورة",
               type: "image",
               validation: (Rule) => Rule.required(),
+            },
+            {
+              name: "otherImages",
+              title: " صور أخرى",
+              type: "array",
+              of: [
+                {
+                  type: "image",
+                  options: {
+                    hotspot: true,
+                  },
+                },
+              ],
             },
             {
               name: "text",
@@ -92,8 +126,8 @@ export default {
                   validation: (Rule) =>
                     Rule.required()
                       .min(1)
-                      .max(30)
-                      .error("يجب الا يزيد عن 30 حرف"),
+                      .max(50)
+                      .error("يجب الا يزيد عن 50 حرف"),
                 },
                 {
                   name: "ar",
@@ -103,8 +137,8 @@ export default {
                   validation: (Rule) =>
                     Rule.required()
                       .min(1)
-                      .max(30)
-                      .error("يجب الا يزيد عن 30 حرف"),
+                      .max(50)
+                      .error("يجب الا يزيد عن 50 حرف"),
                 },
               ],
             },
