@@ -5,7 +5,7 @@ export default {
   fields: [
     {
       name: "news",
-      title: "News",
+      title: "الاخبار الهامة",
       type: "array",
       of: [
         {
@@ -13,26 +13,55 @@ export default {
           fields: [
             {
               name: "image",
-              title: "Image",
+              title: "صورة",
               type: "image",
               options: { hotspot: true },
+              validation: (Rule) => Rule.required(),
             },
             {
               name: "title",
-              title: "Title",
+              title: "العنوان",
               type: "object",
               fields: [
-                { name: "ar", title: "عربي", type: "string" },
-                { name: "en", title: "إنجليزي", type: "string" },
+                {
+                  name: "ar",
+                  title: "عربي",
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(100)
+                      .error("يجب الا يزيد عن 30 حرف"),
+                },
+                {
+                  name: "en",
+                  title: "إنجليزي",
+                  type: "string",
+                  validation: (Rule) =>
+                    Rule.required()
+                      .min(1)
+                      .max(100)
+                      .error("يجب الا يزيد عن 30 حرف"),
+                },
               ],
+              validation: (Rule) => Rule.required(),
             },
             {
               name: "description",
-              title: "Description",
+              title: "الوصف",
               type: "object",
               fields: [
                 { name: "ar", title: "عربي", type: "text" },
                 { name: "en", title: "إنجليزي", type: "text" },
+              ],
+            },
+            {
+              name: "details",
+              title: "التفاصيل",
+              type: "object",
+              fields: [
+                { name: "ar", title: "عربي", type: "markdown" },
+                { name: "en", title: "إنجليزي", type: "markdown" },
               ],
             },
             {
