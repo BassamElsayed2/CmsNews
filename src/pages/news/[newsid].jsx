@@ -98,7 +98,7 @@ const ServiceDetails = () => {
                 <ProjectDetailsArea desc={newsDetails?.description?.[locale]} />
                 {newsDetails?.details?.[locale] && (
                   <article
-                    className="container pr-170"
+                    className="container pr-50"
                     dangerouslySetInnerHTML={{
                       __html: marked(newsDetails.details[locale]), // حول markdown إلى HTML
                     }}

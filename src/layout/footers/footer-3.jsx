@@ -162,8 +162,6 @@ const FooterThree = () => {
     fetchData();
   }, []);
 
-  console.log(footerData);
-
   return (
     <>
       <div
@@ -251,8 +249,8 @@ const FooterThree = () => {
                               className="first-child "
                               href={`tel:${footerData?.phone}`}
                             >
-                              {footerData?.phones.map((item) => (
-                                <p>{item}</p>
+                              {footerData?.phones.map((item, i) => (
+                                <p key={i}>{item}</p>
                               ))}
                             </Link>
                           </li>

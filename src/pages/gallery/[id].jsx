@@ -53,8 +53,6 @@ function GalleryDetails() {
     return;
   }
 
-  console.log(galleryDetails);
-
   return (
     <>
       <SEO />
