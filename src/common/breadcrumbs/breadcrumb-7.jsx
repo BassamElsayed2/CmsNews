@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import useBreadcrumbTitleAnime from "@/src/hooks/useBreadcrumbTitleAnime";
 
@@ -7,11 +7,26 @@ import shape_1 from "../../../public/assets/img/breadcrumb/breadcrumb-shape-2-2.
 import shape_2 from "../../../public/assets/img/breadcrumb/breadcrumb-sub-2.png";
 import shape_3 from "../../../public/assets/img/breadcrumb/breadcrumb-sub-3.png";
 import { useRouter } from "next/router";
+import { client } from "@/src/sanity/lib/client";
+import { galleryFetch } from "@/src/sanity/lib/queries";
+import GalleryDetails from "@/src/pages/gallery/[id]";
 
 const BreadcrumbSeven = () => {
   const { animeRef } = useBreadcrumbTitleAnime();
 
   const { locale } = useRouter();
+
+  const [galleryData, setGalleryData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const query = galleryFetch;
+      const data = await client.fetch(query);
+      setGalleryData(data);
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -45,13 +60,7 @@ const BreadcrumbSeven = () => {
                   data-wow-duration=".9s"
                   data-wow-delay=".6s"
                 >
-                  <p>
-                    {locale === "en"
-                      ? "We have an experienced team of production and inspection personnel"
-                      : "لدينا فريق ذو خبرة في الإنتاج والتفتيش"}
-                    <br />
-                    {locale === "en" ? "to ensure quality." : "لضمان الجودة."}
-                  </p>
+                  <p>{galleryData?.desc?.[locale]}</p>
                 </div>
               </div>
             </div>

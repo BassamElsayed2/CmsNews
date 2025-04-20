@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { client } from "@/src/sanity/lib/client";
@@ -12,12 +12,18 @@ import { newsFetch } from "@/src/sanity/lib/queries";
 import index from "..";
 
 function InvestigationsSection() {
+  const router = useRouter();
+  const { locale, query } = router;
+  const inputRef = useRef(null);
+
   const [newsData, setNewsData] = useState(null);
   const [categories, setCategories] = useState([]);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const { locale } = useRouter();
 
+  const searchQuery = query.search || "";
+  const selectedCategory = query.category || "";
+  const [searchInput, setSearchInput] = useState(searchQuery);
+
+  // 🔁 Fetch data
   useEffect(() => {
     const fetchData = async () => {
       const [news, cats] = await Promise.all([
@@ -30,11 +36,39 @@ function InvestigationsSection() {
     fetchData();
   }, []);
 
+  // 🔄 Update URL on search
+  const handleSearchKeyDown = (e) => {
+    if (e.key === "Enter") {
+      router.push(
+        {
+          pathname: router.pathname,
+          query: { ...query, search: searchInput },
+        },
+        undefined,
+        { shallow: true }
+      );
+      setSearchInput("");
+    }
+  };
+
+  // 🔄 Update URL on category change
+  const handleCategoryChange = (e) => {
+    const value = e.target.value;
+    router.push(
+      {
+        pathname: router.pathname,
+        query: { ...query, category: value },
+      },
+      undefined,
+      { shallow: true }
+    );
+  };
+
+  // 🧠 Filter data based on URL
   const filteredCards = newsData?.otherCards?.filter((item) => {
     const title = item.title?.[locale]?.toLowerCase() || "";
     const desc = item.description?.[locale]?.toLowerCase() || "";
     const categoryId = item.category?._ref;
-
     const matchesSearch =
       title.includes(searchQuery.toLowerCase()) ||
       desc.includes(searchQuery.toLowerCase());
@@ -47,7 +81,6 @@ function InvestigationsSection() {
 
   return (
     <section className="investigations-section mb-100">
-      {/* Search & Filter */}
       {/* Search & Filter */}
       <div
         style={{
@@ -81,8 +114,10 @@ function InvestigationsSection() {
           <input
             type="text"
             placeholder="ابحث عن ..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            onKeyDown={handleSearchKeyDown}
+            ref={inputRef}
             className="input"
           />
         </div>
@@ -91,7 +126,7 @@ function InvestigationsSection() {
         <div className="custom-select-wrapper">
           <select
             value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
+            onChange={handleCategoryChange}
             className="custom-select"
           >
             <option value="">
@@ -105,6 +140,7 @@ function InvestigationsSection() {
           </select>
         </div>
       </div>
+
       <div className="section-header">
         <h2>{newsData?.headerTitle?.[locale]}</h2>
       </div>
@@ -112,12 +148,12 @@ function InvestigationsSection() {
       <div className="content-wrapper">
         <div className="cards-column">
           {/* Main card */}
-          <div className="main-card">
+          {/* <div className="main-card">
             {newsData?.otherCards.slice(-1).map((item) => (
               <React.Fragment key={item.slug?.current}>
                 <Link
                   className="main-content"
-                  href={`${locale}/news/${item.slug?.current}`}
+                  href={`/${locale}/news/${item.slug?.current}`}
                 >
                   <h3>{item.title?.[locale]}</h3>
                   <p>{item.description?.[locale]}</p>
@@ -128,13 +164,13 @@ function InvestigationsSection() {
                 />
               </React.Fragment>
             ))}
-          </div>
+          </div> */}
 
           {/* Filtered smaller cards */}
           <div className="card-grid">
             {filteredCards?.map((item) => (
               <Link
-                href={`${locale}/news/${item?.slug?.current}`}
+                href={`/${locale}/news/${item?.slug?.current}`}
                 className="small-card"
                 key={item?.slug?.current}
               >

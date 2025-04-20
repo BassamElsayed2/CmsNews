@@ -82,8 +82,6 @@ const ServiceDetails = () => {
 
   if (loading) return <LoadingPage />;
 
-  console.log(newsDetails);
-
   return (
     <>
       <SEO />
