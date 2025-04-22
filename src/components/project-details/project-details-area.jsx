@@ -87,9 +87,9 @@ const ProjectDetailsArea = ({ desc }) => {
           <div className="row g-0">
             <div className="col-xl-10 col-lg-10 ">
               <div className="pd-details-wrapper">
-                <h4 className="pd-details-title">
-                  {locale === "ar" ? "تفاصيل" : "Overview"}
-                </h4>
+                {/* <h4 className="pd-details-title">
+                  { locale === "ar" ? "تفاصيل" : "Overview"}
+                </h4> */}
 
                 <p>{desc}</p>
               </div>

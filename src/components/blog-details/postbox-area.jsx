@@ -113,28 +113,24 @@ const PostboxArea = ({ style_details_2, blogDetails }) => {
                     <h4 className="postbox__details-title">
                       {blogDetails?.title?.[locale]}
                     </h4>
-                    <p>
-                      {blogDetails?.articalText &&
-                        blogDetails?.articalText[0]?.[locale]}
-                    </p>
-                    <p>
-                      {blogDetails?.articalText &&
-                        blogDetails?.articalText[1]?.[locale]}
-                    </p>
+                    {blogDetails?.articalText && (
+                      <>
+                        <p>
+                          {blogDetails?.articalText &&
+                            blogDetails?.articalText[0]?.[locale]}
+                        </p>
+                        <p>
+                          {blogDetails?.articalText &&
+                            blogDetails?.articalText[1]?.[locale]}
+                        </p>{" "}
+                      </>
+                    )}
                   </div>
-                  {/* <div className="postbox__details-checkmark">
-                    <ul>
-                      {checkmark_list.map((item, i) => (
-                        <li key={i}>
-                          <i className="fal fa-check"></i>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div> */}
+
                   <div className="postbox__details-title-box pb-30">
-                    {/* <h4 className="postbox__details-title">{title_2}</h4> */}
-                    <p>{blogDetails?.articalText[2]?.[locale]}</p>
+                    {blogDetails?.articalText && (
+                      <p>{blogDetails?.articalText[2]?.[locale]}</p>
+                    )}
                   </div>
                   <div className="postbox__details-img-box d-flex">
                     <div className="mr-20 text-center">
@@ -164,108 +160,22 @@ const PostboxArea = ({ style_details_2, blogDetails }) => {
                     </div> */}
                   </div>
                   <div className="postbox__details-title-box pb-15">
-                    <p>{blogDetails?.articalText[3]?.[locale]}</p>
+                    {blogDetails?.articalText && (
+                      <p>{blogDetails?.articalText[3]?.[locale]}</p>
+                    )}
                   </div>
-                  {/* {blogDetails?.qoute && (
-                    <div className="postbox__details-qoute mb-30">
-                      <blockquote className="d-flex align-items-start">
-                        <div className="postbox__details-qoute-icon">
-                          <DoubleSemicolon />
-                        </div>
-                        <div className="postbox__details-qoute-text">
-                          <p>{blogDetails?.qoute?.[locale]}</p>
-                        </div>
-                      </blockquote>
-                    </div>
-                  )} */}
+
                   <div className="postbox__details-title-box pb-15">
-                    <p>{blogDetails?.articalText[4]?.[locale]}</p>
+                    {blogDetails?.articalText && (
+                      <p>{blogDetails?.articalText[4]?.[locale]}</p>
+                    )}
                   </div>
-                  {/* <div className="postbox__details tagcloud mb-50">
-                    <span>Tags:</span>
-                    <Link href="#">Envato</Link>
-                    <Link href="#">Development</Link>
-                    <Link href="#">Technology</Link>
-                    <Link href="#">Wordpress</Link>
-                  </div> */}
-
-                  {/* <div className="postbox__navigation-more mb-70 d-flex justify-content-between">
-                    <div className="postbox__navigation-left d-flex align-items-center">
-                      <div className="postbox__navigation-img">
-                        <Link href="#">
-                          <Image src={navigation_img_1} alt="theme-pure" />
-                        </Link>
-                      </div>
-                      <div className="postbox__navigation-content">
-                        <Link href="#">
-                          <span>
-                            <i className="far fa-arrow-left"></i>
-                            Previous post
-                          </span>
-                        </Link>
-                        <h5>
-                          <Link href="#">Leveraging Feedback...</Link>
-                        </h5>
-                      </div>
-                    </div>
-                    <div className="postbox__navigation-right d-flex align-items-center">
-                      <div className="postbox__navigation-content">
-                        <Link href="#">
-                          <span>
-                            Next post
-                            <i className="far fa-arrow-right"></i>
-                          </span>
-                        </Link>
-                        <h5>
-                          <Link href="#">Typing Tutorials For...</Link>
-                        </h5>
-                      </div>
-                      <div className="postbox__navigation-img">
-                        <Link href="#">
-                          <Image src={navigation_img_2} alt="theme-pure" />
-                        </Link>
-                      </div>
-                    </div>
-                  </div> */}
-
-                  {/* <div className="postbox__details-author-info-box mb-100 d-flex align-items-start">
-                    <div className="postbox__details-author-avata">
-                      <Image src={blog_details_avata} alt="theme-pure" />
-                    </div>
-                    <div className="postbox__details-author-content">
-                      <h5 className="postbox__details-author-title">
-                        Dianne Ameter
-                      </h5>
-                      <p>
-                        Ex erat referrentur vis. Vim ad consul molestie, eu
-                        malorum aliquando referrentur pro, erroribus gloriatur
-                        sed at.!
-                      </p>
-                      <div className="postbox__details-author-social">
-                        <SocialLinks />
-                      </div>
-                    </div>
-                  </div> */}
-
-                  {/* <div className="postbox__comment mb-65">
-                    <h3 className="postbox__comment-title">3 Comments</h3>
-                    <Comments />
-                  </div>
-                  <div className="postbox__comment-form">
-                    <h3 className="postbox__comment-form-title">
-                      Leave A Comment
-                    </h3>
-                    <CommentPost />
-                  </div> */}
                 </article>
               </div>
             </div>
             <div className="col-xxl-4 col-xl-4 col-lg-4">
               <div className="sidebar__wrapper">
-                {/* <Search /> */}
                 <RecentPost />
-                {/* <Categories /> */}
-                {/* <Tags /> */}
               </div>
             </div>
           </div>

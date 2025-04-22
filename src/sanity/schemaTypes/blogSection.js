@@ -211,7 +211,7 @@ export default {
                 },
               ],
               validation: (Rule) =>
-                Rule.min(3).error("يمكنك إدخال 3 فقرات كحد أدني"),
+                Rule.required().min(3).error("يمكنك إدخال 3 فقرات كحد أدني"),
             },
             {
               name: "vdieoCode",
